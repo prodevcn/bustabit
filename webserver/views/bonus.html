@@ -1,0 +1,98 @@
+{{##def.page_title = 'Bonus' #}}
+
+{{##def.content:
+    <script type="text/javascript">
+        function goHome() {
+            location.assign("/play");
+        }
+        function setTab(index) {
+            switch (index) {
+                case 1:
+                    document.getElementById('active_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('available_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('history_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('active').style="display: block;";
+                    document.getElementById('available').style="display: none;";
+                    document.getElementById('history').style="display: none;";
+                    
+                    break;
+                case 2:
+                    document.getElementById('active_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('available_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('history_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('active').style="display: none;";
+                    document.getElementById('available').style="display: block;";
+                    document.getElementById('history').style="display: none;";
+                    break;
+                default:
+                    document.getElementById('active_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('available_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('history_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('active').style="display: none;";
+                    document.getElementById('available').style="display: none;";
+                    document.getElementById('history').style="display: block;";
+                    break;
+            }
+        }
+    </script>
+<div class="row faq panel radius">
+    <h3><a class="logo-link" href="/play"><i class="fa fa-times"></i></a></h3>
+    <div class="modal-container">
+        <div style="width:60%; margin: 0 auto 1rem; text-align:center;font-size: 1.5rem;">
+            Bonus
+        </div>
+        <ul class="head_tab">
+            <li class="head_tab_item" id="active_tab" onclick="setTab(1)">Active Bonus</li>
+            <li class="head_tab_item" id="available_tab" onclick="setTab(2)">Available Bonuses</li>
+            <li class="head_tab_item" id="history_tab" onclick="setTab(3)">Bonus History</li>
+        </ul>
+        <div id="active">
+            <div class="dlg_content">
+                <p class="content_text title">You don`t have any active bonuses</p>
+                <p class="content_text small grey">Pick one of available bonuses and activate it to participate in bonus program and receive bonus.</p>
+                
+                <div class="row">
+                    <div class="large-6 columns">
+                        <input id="cancel" class="button secondary center cancel-btn" type="button" onclick="goHome()" value="CLOSE"/>
+                    </div>
+                    <div class="large-6 columns">
+                        <input id="registerSubmit" class="button secondary center register-btn small" onclick="setTab(2)" type="button" value="CHECK BONUS"/>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div id="available">
+            <div class="dlg_content">
+                <p class="content_text title">There is no available bonuses at the moment</p>
+                <p class="content_text small">We have Bonus programs form time to time, stay tuned and check this page regularly.</p>
+            </div>
+        </div>
+        <div id="history">
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>BONUS NAME</td>
+                    <td>RECEIVED AMOUNT</td>
+                    <td>WAGER</td>
+                    <td>ENDED</td>
+                    <td>STATUS</td>
+                </tr>
+                <tr class="well-tr">
+                    <td><span><img class="icon" src="img/icon_instant-double.svg"></span></td>
+                    <td>100% match bonus up to 1$USD</td>
+                    <td>0.00 $USD</td>
+                    <td>100x</td>
+                    <td>2020-08-17 12:23:48</td>
+                    <td>Expired</td>
+                </tr>
+            </table>
+            <div class="">
+                <input id="registerSubmit" class="positive_btn" type="button" onclick="setTab(2);" value="CHECK BONUS"/>
+            </div>
+        </div>
+    </div>
+
+</div>
+#}}
+{{#def.include('./template/main_old')}}

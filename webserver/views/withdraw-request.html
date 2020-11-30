@@ -1,0 +1,196 @@
+{{##def.page_title = 'Withdraw Request' #}}
+
+{{##def.content:
+<script type="text/javascript">
+    var coins = [
+        ['/img/btc.png', 'BTC', 'BitCoin', 'bitcoin', '34'],
+        ['/img/eth.png', 'ETH', 'Ethereum', 'ethereum', '42'],
+        ['/img/usdt.png', 'ERC20-USDT', 'ERC20-USDT', 'tether', '42'],
+        ['/img/usd.png', 'SRC20-USD', '$USD', '$usd', '34'],
+    ];
+    function logout() {
+        if (document.getElementById('logout') ) {
+            if (confirm("Are you sure you want to log out?")) {
+                document.getElementById("logout").submit();
+            }
+        }
+    }
+    function openSelectionPanel() {
+        document.getElementById('selection-panel').style.display="block";
+    }
+    function onSelectCurrency(index) {
+        document.getElementById('selection-panel').style.display="none";
+        document.getElementById('coin-uri').src = coins[index][0];
+        document.getElementById('coin-logo').innerHTML = coins[index][1];
+        document.getElementById('coin-name').innerHTML = coins[index][2];
+        document.getElementById('code').value =coins[index][3];
+    }
+    function validationForm (){
+        var coin_code = document.getElementById('coin-logo').innerHTML;
+        var wallet_addr = document.getElementById('destination').value;
+        alert(wallet_addr);
+        if (coin_code == "BTC") {
+            if (wallet_addr.length == 34){
+                console.log('true');
+                return true;
+            } else {
+                alert('please input correct destination address');
+                console.log('false');
+                return false;
+            }
+        } else if (coin_code == "ETH" || coin_code == "ERC20-USDT") {
+            if (wallet_addr.length == 42){
+                console.log('true');
+                return true;
+            } else {
+                alert('please input correct destination address');
+                console.log('false');
+                return false;
+            }
+        } else if (coin_code == "SRC20-USD") {
+            if (wallet_addr.length == 34){
+                console.log('true');
+                return true;
+            } else {
+                alert('please input correct destination address');
+                console.log('false');
+                return false;
+            }
+        }
+    }
+    function closeWarning(){
+        document.getElementById('warning-box').style.display='none';
+    }
+</script>
+<form action="/logout" method="post" id='logout'></form>
+<div class="content row panel radius">
+    <div class="waring-box" id="warning-box">
+        <i class="fa fa-close" onclick="closeWarning()"></i>
+        <h3>This is wrong destination address, please re-input destination address...</h3>
+    </div>
+
+    <div class="settings">
+        <div class="small-2 columns">
+            <ul class="menu">
+                <li>
+                    <a href="/account">Account</a>
+                </li>
+                <li>
+                    <a href="/security">Security</a>
+                </li>
+                <li>
+                    <a href="/deposit">Deposit</a>
+                </li>
+                <li >
+                    <a class="active" href="/withdraw">Withdraw</a>
+                </li>
+                <li>
+                    <a href="/transfer">Transfer</a>
+                </li>
+                <li>
+                    <a href="/support">Support</a>
+                </li>
+                <li>
+                    <a onclick="logout();">
+                        Logout
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="small-10 columns sets-content">
+            <h3><a class="logo-link" href="/play"><i class="fa fa-home"></i></a> &nbsp;Request A Withdrawal &nbsp; <a class="logo-link right" href="/play"><i class="fa fa-times"></i></a></h3>
+            <p class="small">
+                **The minimum amount for a withdrawal is {{= it.miningFeeBits + 100 }} $USD. You will receive {{= it.miningFeeBits }} $USD less than what you withdraw,
+                as we use that {{= it.miningFeeBits }} $USD to go towards mining fee. As required, we will as well chip in with our money to
+                help expedite confirmation time.
+            </p>
+
+            <p>
+                <strong>Note:</strong> Your withdrawal will be sent from the hot wallet, do not withdraw to any site
+                that uses the sending address, or returns to sender, because any returns will probably be credited to a different player.
+            </p>
+            <form action="/withdraw-request" method="post" onsubmit="return validationForm()">
+                <input id="fp" name="fp" type="hidden" value=""/>
+                <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+                <input style="display:none" type="text" name="fakeusernameremembered"/>
+                <input style="display:none" type="password" name="fakepasswordremembered"/>
+                <div class="row">
+                    <div class="large-6 columns first">
+                        <div class="currency-selection" onclick="openSelectionPanel()">
+                            <div class="half-left">
+                                <img src="/img/btc.png" alt="" id="coin-uri">
+                                <h5 id="coin-logo">BTC</h5>
+                            </div>
+                            <div class="half-right">
+                                <h5 id="coin-name">BitCoin</h5>
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="selection-panel" id="selection-panel">
+                            <ul>
+                                <li class="currency-item" onclick="onSelectCurrency(0)">
+                                    <div class="half-left">
+                                        <img src="/img/btc.png" alt="">
+                                        <h5>BTC</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>BitCoin</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(1)">
+                                    <div class="half-left">
+                                        <img src="/img/eth.png" alt="">
+                                        <h5>ETH</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>Ethereum</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(2)">
+                                    <div class="half-left">
+                                        <img src="/img/usdt.png" alt="">
+                                        <h5>ERC20-USDT</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>USDT</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(3)">
+                                    <div class="half-left">
+                                        <img src="/img/usd.png" alt="">
+                                        <h5>SRC20-USD</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>$USD</h5>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <input type="hidden" name="code" id="code" value='bitcoin'>
+                <label for="amount">$USD amount</label>
+                <input type="number" id="amount" name="amount" placeholder="{{=( it.miningFeeBits + 100)/100 }}" min="{{=(it.miningFeeBits + 100)/100 }}" step=".01" required/>
+                <label for="destination">Destination Address</label>
+                <input type="text" id="destination" name="destination" required/>
+                <label for="password">Your password</label>
+                <input type="password" id="password" name="password" autocomplete="off"/>
+                {{?it.user.mfa_secret}}
+                    <label for="otp">2FA Code</label>
+                    <input type="text" id="otp" name="otp" autocomplete="off" pattern="[0-9]{6}" required />
+                {{?}}
+                <a href="/withdraw" class="border-button ">Back</a>
+                <input class="border-button right blue" type="submit"/>
+                <input type="hidden" name="withdrawal_id" value="{{= it.id}}" />
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="{{? it.buildConfig }}/old/lib/fingerprintjs2/fingerprint2.min.js{{??}}/client_old/lib/fingerprintjs2/fingerprint2.min.js{{?}}"></script>
+<script>new Fingerprint2().get(function(fp){document.getElementById('fp').setAttribute('value',fp);});</script>
+
+#}}
+
+{{#def.include('./template/main_old')}}

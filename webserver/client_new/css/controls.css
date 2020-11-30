@@ -1,0 +1,1238 @@
+/** ================ Default look ================ **/
+
+
+#controls-inner-container {
+    position: relative;
+    /* width: 100%;
+    height: 100%; */
+    /* background: red; */
+    margin: auto;
+    display: flex; 
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;  
+    width: 100%; 
+}
+
+#controls-inner-container .control-inputs-container {
+}
+
+
+#controls-inner-container .input-control {
+    width: 100%;
+}
+
+#controls-inner-container .button-container {
+    /* width: 100%; */
+    /* width: auto; */
+    width: 18%;
+    /* height: calc(100% - 7.5rem); */
+    /* padding: 1rem 0.5rem 0 0.5rem; */
+}
+
+#controls-inner-container .bet-container, #controls-inner-container  .autocash-container {
+}
+
+#controls-inner-container .bet-container {
+    padding: 1rem 0.5rem 0 0.5rem;
+}
+
+#controls-inner-container .autocash-container {
+    padding: 2rem 0.5rem 0 0.5rem;
+}
+
+#controls-inner-container  .bet-container > input, #controls-inner-container  .bet-container > span, #controls-inner-container .autocash-container > input, #controls-inner-container .autocash-container > span {
+}
+.main-container {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+    margin:auto;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/** BET/AUTOCASH **/
+
+#controls-inner-container .bet-input-group {
+    display: table;
+    position: relative;
+}
+
+#controls-inner-container .bet-input-group>input {
+    line-height: 2em;
+    height: 2em;
+    width: 100%;
+    outline: none;
+    padding-left: 0.5rem;
+    margin: 0;
+}
+
+#controls-inner-container .bet-input-group>input:disabled {
+	background-color: #EBEBEB;
+}
+
+#controls-inner-container .bet-input-group>input, #controls-inner-container .bet-input-group>span {
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    color: #181a1e;
+}
+
+#controls-inner-container .bet-input-group>span:first-child  {
+    position: absolute;
+    font-weight: bold;
+    top: -1rem;
+    border: 0;
+    background-color: transparent;
+    border-color: transparent;
+    color: #b0b3c1;
+}
+
+#controls-inner-container .bet-input-group>span:last-child  {
+    color: #555;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    font-size: 0.8rem;
+    padding: 0 0.5rem;
+
+    border-left: 0;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+
+    width: 1%;
+    white-space: nowrap;
+    vertical-align: middle;
+
+    height: 1rem;
+    display: table-cell;
+}
+
+#controls-inner-container .bet-input-group.error input {
+    border: 1px solid;
+    border-color: #a94442;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
+
+#controls-inner-container .bet-input-group.error input:focus {
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;
+    outline: none;
+}
+
+#controls-inner-container .bet-input-group.error span {
+    border: 1px solid;
+    border-color: #a94442;
+    background-color: #a94442;
+    color: white;
+}
+
+#controls-inner-container .bet-input-group.error>span:first-child {
+    color: #a94442;
+    border: none;
+    background-color: transparent;
+}
+
+
+/** Button **/
+
+#controls-inner-container .bet-button-container {
+    height: 100%;
+    box-sizing: content-box;
+}
+
+/* #controls-inner-container .bet-button {
+    display: block;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: calc(100% - 10px);
+    text-align: center;
+    color: white;
+    background-color: rgba(243,150,47,1);
+    position: relative;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 2rem;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    -webkit-box-shadow: 0 6px 0 rgb(255,82,5),0px 9px 25px rgba(0,0,0,.1);
+    -moz-box-shadow: 0 6px 0 rgb(255,82,5),0px 9px 25px rgba(0,0,0,.1);
+    box-shadow: 0px 6px 0px rgb(255,81,20),0px 9px 25px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    border: 0;
+    outline: none;
+    font-family: inherit;
+    cursor: pointer;
+} */
+#controls-inner-container .bet-button1 {
+    /* margin: 0 10px; */
+    font-size: 1rem;
+    border-radius: 42px;
+    width: 50%;
+    max-width: 200px;
+    padding: 1rem;
+    border: none;
+    color: #fff;
+    transition: none;
+    /* box-shadow: 0 0 6px 0 rgba(57,181,251,0.18), 0 14px 14px -18px #173240, inset 0 1px 3px 0 #2DB1E2; */
+    text-shadow: 0 1px 2px #4D79BD;
+    background-image: linear-gradient(-180deg, #34BAFF 0%, #688FE1 100%);
+    outline: none;
+    -webkit-box-shadow: 0 4px 0 rgba(63, 14, 112, 0.152429), 0 14px 14px #6acffd2e, inset 0 1px 3px #2DB1E2;
+    /* box-shadow: 0 4px 0 rgba(63, 14, 112, 0.152429), 0 14px 14px #6acffd2e, inset 0 1px 3px #2DB1E2; */
+}
+#controls-inner-container .bet-button {
+    padding: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    /* width: 20%; */
+    width: 100%;
+    border-radius: 42px;
+    /* max-width: 200px; */
+    border: none;
+    color: #fff;
+    transition: none;
+    text-shadow: 0 1px 2px #9C4E16;
+    background-color: #FF8100;
+    background-image: linear-gradient(#f3a72e 0, #fe6501 100%);
+    outline: none;
+    display: block;
+    box-shadow: 0 4px 0 rgba(63, 14, 112, 0.152429), 0 14px 14px rgba(255, 135, 0, 0.18), inset 0 1px 3px #f7b300;
+}
+.letter {
+    text-align: center;
+    margin: auto 20px;
+    /* margin-bottom: 10px; */
+    /* margin-top: 10px; */
+}
+#controls-inner-container .bet-button > span {
+     white-space: nowrap;
+}
+
+#controls-inner-container .btn-content {
+    white-space: nowrap;
+}
+
+#controls-inner-container .btn-content .cashout-cont {
+    display: block;
+    /* line-height: 2rem; */
+}
+
+#controls-inner-container .btn-content .cashout-amount-cont {
+    display: block;
+    font-size: 1rem;
+}
+
+#controls-inner-container .bet-button:active {
+    -webkit-box-shadow: 0px 3px 0px rgb(186,60,18),0px 3px 6px rgba(0,0,0,.2);
+    -moz-box-shadow: 0px 3px 0px rgb(186,60,18),0px 3px 6px rgba(0,0,0,.2);
+    box-shadow: 0px 3px 0px rgb(186,60,18),0px 3px 6px rgba(0,0,0,0.2);
+    position: relative;
+    top: 6px;
+}
+
+#controls-inner-container .bet-button.cashout {
+    background-color: #ff8100;
+}
+
+#controls-inner-container .bet-button.disable, #controls-inner-container .bet-button.invalid-bet {
+    background-color: rgba(168, 168, 168, 1);
+    /* -webkit-box-shadow: 0px 3px 0px rgb(186, 60, 18), 0px 3px 6px rgba(0,0,0,.2);
+    -moz-box-shadow: 0px 3px 0px rgb(186, 60, 18), 0px 3px 6px rgba(0,0,0,.2); */
+    /* box-shadow: 0px 3px 0px rgb(102, 102, 102), 0px 3px 6px rgba(0,0,0,0.2); */
+    cursor: default;
+}
+
+#controls-inner-container .bet-button.disable.cancel {
+    /* cursor: pointer; */
+}
+
+#controls-inner-container .bet-button a.cancel {
+    color: #880000;
+    font-size: 0.8rem;
+}
+
+
+/* Login Button */
+
+#controls-inner-container .login-button-container {
+    margin: 0;
+    /* margin-top: 2rem; */
+    text-align: center;
+}
+
+#controls-inner-container .register-container {
+    text-align: center;
+    /* padding-right: 0.8rem; */
+}
+
+#controls-inner-container .register-button{
+    font-size: 1rem;
+    padding: 1rem;
+    width: 50%;
+    max-width: 200px;
+    color: white;
+    border:none;
+    outline: none;
+    border-radius: 42px;
+    text-shadow: 0 1px 2px #9C4E16;
+    background-color: #FF8100;
+    background-image: linear-gradient(#f3a72e 0, #fe6501 100%);
+    -webkit-box-shadow: 0 4px 0 rgba(63, 14, 112, 0.152429), 0 14px 14px rgba(255, 135, 0, 0.18), inset 0 1px 3px #f7b300;
+    box-shadow: 0 4px 0 rgba(63, 14, 112, 0.152429), 0 14px 14px rgba(255, 135, 0, 0.18), inset 0 1px 3px #f7b300;
+}
+@media only screen and (max-width: 1024px) {
+    #controls-inner-container .register-button{
+        /* min-width: 150px; */
+    }
+    #controls-inner-container .bet-button {
+        min-width: 150px;
+    }
+}
+
+/** ================ Small Screen look ================ **/
+
+@media handheld, only screen and (max-width: 767px) {
+
+    #controls-inner-container .control-inputs-container {
+        width: 70%;
+        padding: 0;
+        float: left;
+        display: block;
+    }
+    .control-panel {
+        left: 10% !important;
+        right: 10% !important; 
+    }
+    .strategy-panel {
+        left: 10% !important;
+        right: 10% !important;
+    }
+    #controls-inner-container .input-control {
+        height: initial;
+    }
+
+    #controls-inner-container .button-container {
+        float: left;
+        width: 30%;
+        height: 100%;
+    
+        /* padding: 0 0.5rem 0 0; */
+    }
+
+
+    #controls-inner-container .bet-container {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+    #controls-inner-container .autocash-container {
+        padding-top: 0;
+        margin-top: 0.3rem;
+    }
+
+    /** BET/AUTO CASH **/
+
+    #controls-inner-container .bet-input-group>input, #controls-inner-container .bet-input-group>span {
+        font-size: 0.8rem;
+    }
+
+    #controls-inner-container .bet-input-group>span:first-child {
+        color: #555;
+        text-align: center;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        font-size: 0.8rem;
+        padding: 0 0.2rem;
+        border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle;
+        height: 0.8rem;
+        display: table-cell;
+        position: static;
+        top: initial;
+    }
+
+    #controls-inner-container .bet-input-group.error>span:first-child {
+        background-color: #a94442;
+        color: white;
+    }
+
+    /** Button **/
+
+    #controls-inner-container .bet-button-container {
+        padding: 0 0.1rem;
+        height: 100%;
+    }
+
+    #controls-inner-container .bet-button {
+        top: inherit;
+        /* font-size: 1.2rem; */
+        /* height: calc(100% - 10px - 0.3rem); */
+        margin: auto;
+}
+
+    #controls-inner-container .btn-content .cashout-cont {
+        display: inline;
+        line-height: inherit;
+        padding-top: 0;
+    }
+
+    #controls-inner-container .btn-content .cashout-amount-cont {
+        display: none;
+    }
+
+    #controls-inner-container .bet-button.cashout {
+        font-size: 1rem;
+    }
+
+    #controls-inner-container .bet-button.disable, #controls-inner-container .bet-button.invalid-bet {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+    
+
+    /* Login Button */
+
+    #controls-inner-container .login-button-container {
+        /* margin: 0.4rem 0 0 0.5rem; */
+    }
+}
+
+/** ================ Big screen and small controls look ================ **/
+
+@media screen and (min-width: 767px) {
+
+    #controls-inner-container.small {
+        display: block;
+    }
+
+    #controls-inner-container.small .control-inputs-container {
+        width: 70%;
+        float: left;
+        padding: 0;
+    }
+
+    #controls-inner-container.small .input-control {
+        height: initial;
+    }
+
+    #controls-inner-container.small .button-container {
+        float: left;
+        width: 30%;
+        height: 100%;
+    
+        padding: 0;
+}
+
+    #controls-inner-container.small .bet-container {
+        padding: 0.5rem 0.1rem 0 0.3rem;
+    }
+
+    #controls-inner-container.small .autocash-container {
+        padding: 1rem 0.1rem 0 0.3rem;
+    }
+
+    /** BET/AUTOCASH **/
+
+    #controls-inner-container.small .bet-input-group>input, #controls-inner-container .bet-input-group>span {
+        font-size: 0.8rem;
+    }
+
+    #controls-inner-container.small .bet-input-group>input {
+        line-height: 2rem;
+        height: 2rem;
+    }
+
+    #controls-inner-container .bet-input-group>span {
+        height: 1rem;
+    }
+
+    #controls-inner-container.small .bet-input-group>span:first-child {
+        color: #555;
+        text-align: center;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        border-radius: 2px;
+        font-size: 0.8rem;
+        padding: 0 0.3rem;
+        border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 1%;
+        white-space: nowrap;
+        vertical-align: middle;
+        display: table-cell;
+        position: static;
+        top: initial;
+        height: 2rem;
+    }
+
+    #controls-inner-container.small .bet-input-group.error>span:first-child {
+        background-color: #a94442;
+        color: white;
+    }
+
+    /** Button **/
+
+    #controls-inner-container.small .bet-button-container {
+        padding: 0;
+    }
+
+    #controls-inner-container.small .bet-button {
+        font-size: 1.2rem;
+        margin: 0.5rem 0.5rem 0 0.5rem;
+        height: calc(100% - 10px - 0.9rem);
+        width: calc(100% - 1rem);
+    }
+
+    #controls-inner-container.small .btn-content .cashout-cont {
+        display: inline;
+        line-height: inherit;
+        padding-top: 0;
+    }
+
+    #controls-inner-container.small .btn-content .cashout-amount-cont {
+        display: none;
+    }
+
+    .cashout-amount-cont span {
+        font-size: 16px;
+    }
+
+    #controls-inner-container.small .bet-button.cashout {
+        font-size: 1rem;
+    }
+
+    /* Login Button */
+
+    #controls-inner-container.small .login-button-container {
+        margin: 0.4rem 0 0 0.5rem;
+    }
+    .sonic-005 {
+        display: none;
+    }
+    .bet-005 {
+        display: none;
+    }
+}
+
+.balanceArea{
+    width: 100%;
+    border: 2px solid #443E4D;
+    height: 45px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+    position: relative;
+    min-width: 0;
+    align-items: center;
+    line-height: 1;
+    border-radius: 32px;
+    background-color: transparent;
+}
+.title {
+    top: 0;
+    left: 12px;
+    color: #88868C;
+    padding: 0 6px;
+    /* position: absolute; */
+    font-size: 12px;
+    /* transform: translateY(50%); */
+    font-family: DINPro-Medium,Helvetica,Arial,serif;
+    line-height: 1;
+    /* background-color: #2B2731; */
+}
+
+.bet-btn {
+    width: 20%;
+    /* min-width: 200px; */
+}
+
+.bet-001 {
+    height: auto;
+    position: relative;
+    text-align: center;
+    line-height: 1;
+    margin: auto;
+    width: 18%;
+}
+
+.bet-002 {
+    width: 100%;
+    border: 2px solid #443E4D;
+    height: 45px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+    position: relative;
+    min-width: 0;
+    align-items: center;
+    line-height: 1;
+    border-radius: 32px;
+    background-color: transparent;
+}
+
+.bet-btn-tip {
+    top: -10px;
+    left: 12px;
+    color: #88868C;
+    padding: 0 6px;
+    position: absolute;
+    font-size: 10px;
+    transform: translateY(50%);
+    font-family: DINPro-Medium, Helvetica, Arial, serif;
+    line-height: 1;
+    background-color: #26222b;
+}
+.input-amount {
+    padding-left: 1rem;
+    color: white;
+}
+.input-amount:hover, .input-amount:focus {
+    border-color: #2DB1E2;
+}
+.bet-003 {
+    width: 50%;
+    text-align: left;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    padding-left: 16px;
+    vertical-align: middle;
+}
+
+.bet-004 {
+    color: #348aff;
+    font-size: 20px;
+    font-family: DINPro-Bold, Helvetica, Arial, serif;
+    white-space: nowrap;
+}
+
+.bet-btn-2nd {
+    color: #fff;
+    background-color: #348aff;
+    background-image: linear-gradient(-179deg, #2db1ee 3%, #4079BD 100%);
+    font-size: 16px;
+    font-family: DINPro-Bold, Helvetica, Arial, serif;
+    line-height: 16px;
+    margin: auto;
+}
+
+.bet-btn-2nd:focus {
+    outline: none;
+    background-color: #348aff;
+    background-image: linear-gradient(-179deg, #2db1ee 3%, #4079BD 100%);
+}
+
+.bet-btn-2nd:active {
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.bet-btn-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+.bet-005 {
+    top: 0;
+    right: 0;
+    height: 47px;
+    margin: -2px -2px;
+    position: absolute;
+    min-width: 120px;
+    /* padding-left: 28px; */
+    border-radius: 32px;
+    /* padding-right: 28px; */
+    text-decoration: none;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+    border: none;
+}
+
+.bet-006 {
+    color: #fff;
+    height: 16px;
+    font-size: 16px;
+    font-family: DINPro-Bold, Helvetica, Arial, serif;
+    line-height: 16px;
+    margin: auto;
+}
+
+.bet-btn-ripple {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    position: absolute;
+    border-radius: inherit;
+    pointer-events: none;
+}
+.sonic-btn {
+    width: 20%;
+    /* min-width: 200px; */
+}
+
+.sonic-001 {
+    height: auto;
+    position: relative;
+    text-align: center;
+    line-height: 1;
+    margin: auto;
+    width: 18%;
+}
+
+.sonic-002 {
+    width: 100%;
+    border: 2px solid #443E4D;
+    height: 45px;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+    position: relative;
+    min-width: 0;
+    align-items: center;
+    line-height: 1;
+    border-radius: 32px;
+    background-color: transparent;
+}
+
+.sonic-btn-tip {
+    top: -10px;
+    left: 12px;
+    color: #88868C;
+    padding: 0 6px;
+    position: absolute;
+    font-size: 10px;
+    transform: translateY(50%);
+    font-family: DINPro-Medium, Helvetica, Arial, serif;
+    line-height: 1;
+    background-color: #26222b;
+}
+
+.sonic-003 {
+    width: 50%;
+    text-align: left;
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+    padding-left: 16px;
+    vertical-align: middle;
+}
+
+.sonic-004 {
+    color: #fff;
+    font-size: 20px;
+    font-family: DINPro-Bold, Helvetica, Arial, serif;
+    white-space: nowrap;
+}
+
+.sonic-btn-2nd {
+    color: #fff;
+    background-color: #47424F;
+    background-image: linear-gradient(-179deg, #47424F 3%, #41364E 100%);
+}
+
+.sonic-btn-2nd:focus {
+    outline: none;
+    background-color: #47424F;
+    background-image: linear-gradient(-179deg, #47424F 3%, #41364E 100%);
+}
+
+.sonic-btn-2nd:active {
+    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.sonic-btn-label {
+    width: 100%;
+    display: inherit;
+    align-items: inherit;
+    justify-content: inherit;
+}
+
+.sonic-005 {
+    top: 0;
+    right: 0;
+    height: 47px;
+    margin: -2px -2px;
+    position: absolute;
+    min-width: 120px;
+    padding-left: 28px;
+    border-radius: 32px;
+    padding: 0 28px;
+    text-decoration: none;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+}
+.sonic-005:hover {
+    text-decoration: none;
+}
+.sonic-006 {
+    color: #fff;
+    height: 16px;
+    font-size: 16px;
+    font-family: DINPro-Bold, Helvetica, Arial, serif;
+    line-height: 16px;
+    margin: auto;
+}
+.sonic-006:hover,
+.sonic-006:active,
+.sonic-006:focus{
+    text-decoration: none;
+}
+.sonic-btn-ripple {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+    overflow: hidden;
+    position: absolute;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.strategy-btn {
+    height: 47px;
+    margin: auto;
+    width: 18%;
+    min-width: 120px;
+    padding-left: 28px;
+    border-radius: 32px;
+    padding-right: 28px;
+    text-decoration: none;
+    display: block;
+    border: none;
+    font-size: 16px;
+    color: #fff;
+        box-shadow: 0 4px 3px 0 rgba(0, 0, 0, .15);
+    background-color: #47424F;
+    background-image: linear-gradient(-179deg, #47424F 3%, #41364E 100%);
+}
+
+.strategy-btn:focus {
+    outline: none;
+    background-color: #47424F;
+    background-image: linear-gradient(-179deg, #47424F 3%, #41364E 100%);
+}
+.control-panel {
+    position: fixed;
+    background-color: #2d2834;
+    top: 25%;
+    /* bottom: 25%; */
+    padding-bottom: 2rem;
+    left: 30%;
+    right: 30%;
+    display: none;
+    border-radius: 5px;
+    z-index: 9999;
+    min-width: 462px;
+    /* transform: translateY(-200px); */
+}
+#black-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 8000;
+    display:none;
+}
+.control-panel span {
+    position: relative;
+    top: 1rem !important;
+    left: 1rem;
+    float: left;
+    color: #57545A;
+}
+.control-panel span:hover {
+    color: #2DB1E2;
+}
+.control-panel .title {
+    color: white;
+    size: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+    text-align: center;
+}
+.btn-group {
+    width: 100%;
+    padding: 5% 5% 0;
+    margin-bottom: 1rem;
+}
+.btn-row {
+    width: 100% !important;
+    margin-bottom: 1rem;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+}
+.betting-btn {
+    width: 18%;
+    float: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+    box-shadow: 0 4px 3px 0 rgba(0,0,0,0.15);
+    background-image: linear-gradient(-179deg, #47424F 3%, #41364E 100%);
+    color: #fff;
+    font-size: 16px;
+    font-family: 'DINPro-Bold',Helvetica,Arial,serif;
+    line-height: 1;
+    text-shadow: 0 1px 2px #000;
+    border-radius: 32px;
+    outline: none;
+    margin: auto;
+    border: none;
+    text-align: center;
+}
+.betting-btn:active{
+    box-shadow: 0 0 6px 0 rgba(57,181,251,0.18), 0 14px 14px -18px #173240, inset 0 1px 3px 0 #2DB1E2;
+    text-shadow: 0 1px 2px #4D79BD !important;
+    background-image: linear-gradient(-180deg, #34BAFF 0%, #688FE1 100%);
+}
+.separation-line {
+    color: #958F9B;
+    margin: 1rem auto;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+    font-size: 14px;
+    max-width: 320px;
+    align-items: center;
+}
+.left-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, #524c59, rgba(0,0,0,0));
+    margin-right: 7px;
+}
+.right-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, rgba(0,0,0,0), #524c59);
+    margin-left: 7px;
+}
+.value-area {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+}
+.half-area {
+    width: 50%;
+    padding: 0 1rem;
+}
+.bet-range {
+    margin-top: 1rem;
+    height: 2px;
+    background: rgba(0, 0, 0, .4);
+    outline: none;
+    /* -webkit-transition: .2s;
+    transition: opacity .2s; */
+}
+.bet-range::-webkit-slider-thumb {
+    background: #2db1e2;
+    /* cursor: pointer; */
+}
+.bet-value {
+    border: 2px solid #41364E;
+    background: transparent;
+    font-size: 16px;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+}
+.bet-value:hover,
+.bet-value:focus,
+.bet-value:active {
+    outline: none;
+    border: 2px solid #2db1e2;
+    color: white
+}
+.ctrl-group {
+    width: 100%;
+    height: 100px;
+    margin-top: 5rem;
+    display: block;
+    background-color: red;
+    text-align: center;
+}
+.cancel-btn {
+    width: 50%;
+    float: right;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+    box-shadow: 0 4px 3px 0 rgba(0,0,0,0.15);
+    background-image: linear-gradient(-179deg, #47424F 3%, #41364E 100%);
+    color: #fff;
+    font-size: 16px;
+    font-family: 'DINPro-Bold',Helvetica,Arial,serif;
+    line-height: 1;
+    text-shadow: 0 1px 2px #000;
+    border-radius: 32px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+.ok-btn {
+    width: 50%;
+    float: left;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    color: white;
+    text-shadow: 0 1px 2px #9C4E16;
+    background-color: #FF8100;
+    background-image: linear-gradient(#f3a72e 0, #fe6501 100%);   
+    font-size: 16px;
+    font-family: 'DINPro-Bold',Helvetica,Arial,serif;
+    line-height: 1;
+    text-shadow: 0 1px 2px #000;
+    border-radius: 32px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+.strategy-panel{
+    position: fixed;
+    background-color: #2d2834;
+    top: 25%;
+    bottom: 25%;
+    left: 30%;
+    right: 30%;
+    display: none;
+    z-index: 9999;
+    border-radius: 5px;
+    padding: 3rem;
+    min-width: 462px;
+}
+.strategy-panel span {
+    /* position: absolute; */
+    top: 1rem !important;
+    left: 1rem;
+    float: left;
+    color: #57545A;
+}
+.strategy-panel span:hover,
+.strategy-panel span:focus,
+.strategy-panel span:active {
+    color: #2db1e2
+}
+.strategy-panel .title {
+    color: white;
+    size: 1rem;
+    width: 100%;
+    text-align: center;
+}
+.panel-area{
+    width: 100%;
+    height: calc(100% - 6rem);
+    /* background: red; */
+
+
+}
+.header-tab{
+    /* background-color: wheat; */
+    width: 100%;
+    /* height: 3rem; */
+    margin-top: 2rem;
+    border-bottom: 1px solid #41364E;
+    text-align: center;
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox; 
+    display: -webkit-flex;
+    /* justify-content: flex-end; */
+}
+.header-tab .value-area {
+    width: 100%;
+    margin-bottom: 0;
+}
+.header-tab .value-area .half-area {
+    padding: 0;
+}
+.header-tab .row 
+{
+    padding-top: calc(2rem - 3px);
+}
+.header-tab .value-area .half-area:nth-child(1) {
+    text-align: right;
+}
+.header-tab .value-area .half-area:nth-child(2) {
+    text-align: left;
+}
+.tab-btn{
+    vertical-align: bottom;
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+/* .tab-btn:nth-child(1) {
+    border-bottom: 2px solid white;
+} */
+.left-tab {
+    border-bottom: 2px solid white;
+}
+.tab-btn:active,
+.tab-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+/* .left-tab {
+    float: right;
+}
+.right-tab {
+ float: left; 
+} */
+
+.header-tab .row .col-sm-6 {
+    margin: 0px;
+    padding: 0px;
+}
+
+.cancel-btn {
+    width: 80%;
+    float: right;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: white;
+    box-shadow: 0 4px 3px 0 rgba(0,0,0,0.15);
+    background-image: linear-gradient(-179deg, #47424F 3%, #41364E 100%);
+    color: #fff;
+    font-size: 16px;
+    font-family: 'DINPro-Bold',Helvetica,Arial,serif;
+    line-height: 1;
+    text-shadow: 0 1px 2px #000;
+    border-radius: 32px;
+    outline: none;
+    border: none;
+    text-align: center;
+}
+.ok-btn {
+    width: 80%;
+    float: left;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: white;
+    /* text-shadow: 0 1px 2px #9C4E16; */
+    background-color: #FF8100;
+    background-image: linear-gradient(#f3a72e 0, #fe6501 100%);
+    font-size: 16px;
+    font-family: 'DINPro-Bold',Helvetica,Arial,serif;
+    line-height: 1;
+    text-shadow: 0 1px 2px #000;
+    border-radius: 32px;
+    outline: none;
+    border: none;
+    text-align: center;
+    box-shadow: 0 4px 0 rgba(63, 14, 112, 0.152429), 0 14px 14px rgba(255, 135, 0, 0.18), inset 0 1px 3px #f7b300;
+}
+.cash-value {
+    width: 100%;
+    border: 2px solid #41364E;
+    background: transparent;
+    font-size: 16px;
+    padding: 0.5rem;
+    width: 100%;
+    border-radius: 5px;
+    color: white;
+    margin-bottom: 1rem;
+}
+.cash-value:hover{
+    outline: none;
+    color: white
+}
+.auto-cashout {
+    padding-top: 1rem;
+    display: block;
+}
+.auto-cashout .title {
+    color: rgb(149,142,155);
+    margin-bottom: 1rem;
+}
+.flat-bet {
+    display: none;
+    padding-top: 1rem;
+}
+.flat-bet .title {
+    color: rgb(149,142,155);
+    margin-bottom: 1rem;
+}
+.cash-value:hover,
+.cash-value:focus,
+.cash-value:active {
+    border-color: #2db1ee;
+}
+button:hover, a:hover{
+    cursor: default !important;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+    -webkit-appearance: button;
+    cursor: default !important;
+}
+.button-group {
+    width: 50%;
+    height: 100%;
+    padding: 0 2rem;
+}
+/* @media only screen and (max-width:600px){
+    .lo-go {
+        width: 36px;
+        height: 36px;
+        margin: auto;
+    }
+    
+} */
+@media only screen and (max-width: 898px) {
+    .sonic-001 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    .bet-001 {
+        width: 100%;
+    }
+    .strategy-btn {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    #controls-inner-container .button-container {
+        width: 100%;
+    }
+}

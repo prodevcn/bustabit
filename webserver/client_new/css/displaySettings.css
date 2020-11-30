@@ -1,0 +1,35 @@
+#display-settings-container {
+    width: 100%;
+    height: 100%;
+}
+
+#display-settings-container .option-row {
+    line-height: 2rem;
+}
+
+#display-settings-container .option-row:nth-of-type(even) {
+    /* background-color: whitesmoke; */
+}
+
+#display-settings-container .option-text {
+    padding-left: 0.2rem;
+    padding-right: 0.3rem;
+    color: rgba(228, 121, 3, 1);
+}
+
+#display-settings-container select {
+    background-color: #26222b;
+    border: 1px solid #26222b;
+    color: #999;
+    border-radius: 0;
+    display: inline-block;
+    height: 1rem;
+    /* cursor: pointer; */
+    outline: none;
+    /* padding-left: 1rem; */
+}
+.option-row input {
+    background-color: #26222b;
+    color: #999;
+    border: none;
+}

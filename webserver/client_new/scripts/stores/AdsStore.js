@@ -1,0 +1,16 @@
+define(
+    [
+        'dispatcher/AppDispatcher',
+        'constants/AppConstants',
+        'lib/events',
+        'lodash'
+    ],  
+    function(
+        AppDispatcher,
+        AppConstants,
+        Events,
+    _
+    ){
+        var 
+    }
+);

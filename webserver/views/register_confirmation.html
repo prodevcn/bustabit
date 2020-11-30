@@ -1,0 +1,58 @@
+{{##def.page_title = 'Thank you for joining' #}}
+
+{{##def.content:
+    <div class="content panel radius">
+        <a href="/play">
+            <span class="back-arrow">
+                <i class="fa fa-arrow-left"></i>
+            </span>
+        </a>
+        <div class="dlg-container">
+            <div class="dlg-title">
+                Sign Up Instantly
+            </div>
+            <div class="login-form" action="/register" method="post" onsubmit="return true;">
+
+                <input id="fp" name="user[fp]" type="hidden" value=""/>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" value="{{=it.email}}" name="user[email]" style="font-weight: bold;" autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label for="username">Username</label>
+                        <input id="usrname" type="text" name="user[name]" value="{{=it.username}}" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" style="font-weight: bold;" readonly required >
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label for="password">Password</label>
+                        <input id="password" type="text" value="{{=it.password}}" name="user[password]" autocomplete="off" pattern=".{7,200}" style="font-weight: bold;" readonly required >
+                        
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <a href="/play"><button class="button secondary center register-btn" onclick="storeUserInfo()">I Agree, Lets Play</button></a>
+                    </div>
+                </div>   
+                <div class="row">
+                    <div class="g-recaptcha right" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div>
+                </div>
+                              
+            </div>
+        </div>
+    </div>
+<script src="{{? it.buildConfig }}/old/lib/fingerprintjs2/fingerprint2.min.js{{??}}/client_old/lib/fingerprintjs2/fingerprint2.min.js{{?}}"></script>
+<script>new Fingerprint2().get(function(fp){document.getElementById('fp').setAttribute('value',fp);});</script>
+<script>
+    function storeUserInfo() {
+        var username = document.getElementById('usrname').value;
+        console.log('++++++++++++++', username);
+        localStorage.setItem('username', username);
+    }
+</script>
+#}}
+{{#def.include('./template/main_old')}}

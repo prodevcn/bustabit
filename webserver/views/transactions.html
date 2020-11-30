@@ -1,0 +1,143 @@
+{{##def.page_title = 'Transactions' #}}
+
+{{##def.content:
+    <script type="text/javascript">
+        function goHome() {
+            location.assign("/play");
+        }
+        function goDeposit() {
+            location.assign("/deposit");
+        }
+        function setTab(index) {
+            switch (index) {
+                case 1:
+                    document.getElementById('deposit_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('withdraw_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('game_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('deposit').style="display:block;";
+                    document.getElementById('withdrawal').style="display:none;";
+                    document.getElementById('game').style="display:none;";
+                    break;
+                case 2:
+                    document.getElementById('deposit_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('withdraw_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('game_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('deposit').style="display:none;";
+                    document.getElementById('withdrawal').style="display:block;";
+                    document.getElementById('game').style="display:none;";
+                    break;
+                default:
+                    document.getElementById('deposit_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('withdraw_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('game_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('deposit').style="display:none;";
+                    document.getElementById('withdrawal').style="display:none;";
+                    document.getElementById('game').style="display:block;";
+                    break;
+            }
+        }
+    </script>
+<div class="row faq panel radius">
+    <h3><a class="logo-link" href="/play"><i class="fa fa-times"></i></a></h3>
+    <div class="modal-container">
+        <div style="width:60%; margin: 0 auto 1rem; text-align:center;font-size: 1.5rem;">
+            Transactions History
+        </div>
+        <ul class="head_tab">
+            <li class="head_tab_item" id="deposit_tab" onclick="setTab(1)">Deposit History</li>
+            <li class="head_tab_item" id="withdraw_tab" onclick="setTab(2)">Withdrawal History</li>
+            <li class="head_tab_item" id="game_tab" onclick="setTab(3)">Game History</li>
+        </ul>
+        <div id="deposit">
+            {{?it.user.deposits.length > 0}}
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Bits</td>
+                                <td>Transaction</td>
+                                <td class="show-for-medium-up">Created</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{~it.user.deposits :deposit:index}}
+                                <tr>
+                                    <td>{{#def.format: {n: deposit.amount, decimals: 2 } }}</td>
+                                    <td><a href="https://www.blocktrail.com/BTC/tx/{{=deposit.txid}}" target="_blank">link</a></td>
+                                    <td class="show-for-medium-up">{{=deposit.created}}</td>
+                                </tr>
+                            {{~}}
+                        </tbody>
+                    </table>
+                {{??}}
+                    <div class="dlg_content">
+                        <i class="fa fa-money" style="font-size:48px"></i>
+                        <p class="content_text title"> There is no deposit history</p>
+                        <p class="content_text small grey">You did not Invested yet in RocketPot. First you will need to invest some BTC and then you will be able to Divest your profits and earnings.</p>
+                        <div class="row">
+                            <div class="large-6 columns">
+                                <input id="cancel" class="button secondary center cancel-btn" type="button" onclick="goHome()" value="CLOSE"/>
+                            </div>
+                            <div class="large-6 columns">
+                                <input id="registerSubmit" class="button secondary center register-btn small" onclick="goDeposit()" type="button" value="DEPOSIT"/>
+                            </div>
+                        </div>
+                    </div>
+                {{?}}
+        </div>
+        <div id="withdrawal">
+            {{?it.user.withdrawals.length > 0}}
+                <table>
+                    <thead>
+                        <tr>
+                            <td>$USD</td>
+                            <td>Destination Address</td>
+                            <td>Status</td>
+                            <td class="show-for-large-up">Created</td>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{~it.user.withdrawals :withdrawal:index}}
+                            <tr>
+                                <td>{{#def.format: {n: withdrawal.amount, decimals: 2 } }}</td>
+                                <td>
+                                    <span class="visible-for-small-only">{{=withdrawal.shortDestination}}...</span>
+                                    <span class="show-for-medium-up">{{=withdrawal.destination}} </span>
+
+                                </td>
+                                <td>
+                                    {{?withdrawal.status}}
+                                         <a href="https://www.blocktrail.com/BTC/tx/{{=withdrawal.status}}" target="_blank">Transferred</a>
+                                    {{??}}
+                                        in progress
+                                    {{?}}
+                                </td>
+                                <td class="show-for-large-up">{{=withdrawal.created}}</td>
+                            </tr>
+                        {{~}}
+                    </tbody>
+                </table>
+            {{??}}
+                <div class="dlg_content">
+                    <i class="fa fa-money" style="font-size:48px"></i>
+                    <p class="content_text title"> There is no withdrawal history</p>
+                    <p class="content_text small grey">You did not Invested yet in RocketPot. First you will need to invest some BTC and then you will be able to Divest your profits and earnings.</p>
+                    <div class="row">
+                        <div class="large-6 columns">
+                            <input id="cancel" class="button secondary center cancel-btn" type="button" onclick="goHome()" value="CLOSE"/>
+                        </div>
+                        <div class="large-6 columns">
+                            <input id="registerSubmit" class="button secondary center register-btn small" onclick="goInvest()" type="button" value="INVEST"/>
+                        </div>
+                    </div>
+                </div>
+            {{?}}
+        </div>
+        <div id="game">
+
+        </div>
+    </div>
+
+</div>
+#}}
+{{#def.include('./template/main_old')}}

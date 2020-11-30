@@ -1,0 +1,200 @@
+{{##def.page_title = 'Deposit History' #}}
+{{##def.content:
+<script type="text/javascript">
+    var coins = [
+        ['/img/btc.png', 'BTC', 'BitCoin' ],
+        ['/img/eth.png', 'ETH', 'Ethereum' ],
+        ['/img/bch.png', 'BCH', 'BitCoin Cash' ],
+        ['/img/ltc.png', 'LTC', 'LiteCoin' ],
+        ['/img/usdt.png', 'ERC20-USDT', 'ERC20-USDT' ],
+        ['/img/xrp.png', 'XRP', 'Ripple' ],
+        ['/img/trx.png', 'TRX', 'Tron' ],
+        ['/img/usd.png', 'SRC20-USD', '$USD' ],
+    ];
+    function logout() {
+        if (document.getElementById('logout') ) {
+            if (confirm("Are you sure you want to log out?")) {
+                document.getElementById("logout").submit();
+            }
+        }
+    }
+    function openSelectionPanel() {
+        document.getElementById('selection-panel').style.display="block";
+    }
+    function onSelectCurrency(index) {
+        document.getElementById('selection-panel').style.display="none";
+        console.log('this is start_________');
+        document.getElementById('coin-uri').src = coins[index][0];
+        console.log('this is end __________________');
+        document.getElementById('coin-logo').innerHTML = coins[index][1];
+        document.getElementById('coin-name').innerHTML = coins[index][2];
+        var coin_addresses = document.getElementById('coin-addresses').value;
+        var coin_address = JSON.parse(coin_addresses)[coins[index][1]];
+        var qr_code = "https://chart.googleapis.com/chart?chs=300x200&cht=qr&chl=" + coin_address;
+        document.getElementById('deposit-address').value = coin_address;
+        document.getElementById('qr_code').src = qr_code;
+    }
+</script>
+<form action="/logout" method="post" id='logout'></form>
+    <div class="content row panel radius">
+        <div class="settings">
+            <div class="small-2 columns">
+                <ul class="menu">
+                    <li>
+                        <a href="/account">Account</a>
+                    </li>
+                    <li>
+                        <a href="/security">Security</a>
+                    </li>
+                    <li class="active">
+                        Deposit
+                    </li>
+                    <li>
+                        <a href="/withdraw">Withdraw</a>
+                    </li>
+                    <li>
+                        <a href="/transfer">Transfer</a>
+                    </li>
+                    <li>
+                        <a href="/support">Support</a>
+                    </li>
+
+                    <li>
+                        <a onclick="logout();">
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+            <div class="small-10 columns setts-content">
+                <h3 class=""><a class="logo-link" href="/play"><i class="fa fa-home"></i></a> &nbsp;Deposit History &nbsp; <a class="logo-link right" href="/play"><i class="fa fa-times"></i></a></h3>
+                <hr>
+                <h3>Select Currency</h3>
+                <div class="row">
+                    <div class="large-6 columns first">
+                        <div class="currency-selection" onclick="openSelectionPanel()">
+                            <div class="half-left">
+                                <img src="/img/btc.png" alt="" id="coin-uri">
+                                <h5 id="coin-logo">BTC</h5>
+                            </div>
+                            <div class="half-right">
+                                <h5 id="coin-name">BitCoin</h5>
+                                <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="selection-panel" id="selection-panel">
+                            <ul>
+                                <li class="currency-item" onclick="onSelectCurrency(0)">
+                                    <div class="half-left">
+                                        <img src="/img/btc.png" alt="">
+                                        <h5>BTC</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>BitCoin</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(1)">
+                                    <div class="half-left">
+                                        <img src="/img/eth.png" alt="">
+                                        <h5>ETH</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>Ethereum</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(2)">
+                                    <div class="half-left">
+                                        <img src="/img/bch.png" alt="">
+                                        <h5>BCH</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>BitCoin Cash</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(3)">
+                                    <div class="half-left">
+                                        <img src="/img/ltc.png" alt="">
+                                        <h5>LTC</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>LiteCoin</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(4)">
+                                    <div class="half-left">
+                                        <img src="/img/usdt.png" alt="">
+                                        <h5>ERC20-USDT</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>ERC20-USDT</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(5)">
+                                    <div class="half-left">
+                                        <img src="/img/xrp.png" alt="">
+                                        <h5>XRP</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>Ripple</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(6)">
+                                    <div class="half-left">
+                                        <img src="/img/trx.png" alt="">
+                                        <h5>TRX</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>Tron</h5>
+                                    </div>
+                                </li>
+                                <li class="currency-item" onclick="onSelectCurrency(7)">
+                                    <div class="half-left">
+                                        <img src="/img/usd.png" alt="">
+                                        <h5>SRC20-USD</h5>
+                                    </div>
+                                    <div class="half-right">
+                                        <h5>$USD</h5>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="large-6 columns">
+                        <img id="qr_code" class="show-for-medium-up qr" src="https://chart.googleapis.com/chart?chs=300x200&cht=qr&chl={{=it.user.deposit_address}}" alt="BTC">
+                    </div>
+                </div>
+                <p class="account">
+                    <b>Deposit Address</b>
+                    <input type="text" value="{{=it.user.deposit_address}}" id="deposit-address" readonly>
+                    <input type="hidden" id="coin-addresses" value='{{=it.user.coin_addresses}}'>
+                    <a href="bitcoin:{{=it.user.deposit_address}}?message=deposit">Bitcoin link</a>
+                </p>
+                {{?it.user.deposits.length > 0}}
+                    <table>
+                        <thead>
+                            <tr>
+                                <td>Bits</td>
+                                <td>Transaction</td>
+                                <td class="show-for-medium-up">Created</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{~it.user.deposits :deposit:index}}
+                                <tr>
+                                    <td>{{#def.format: {n: deposit.amount, decimals: 2 } }}</td>
+                                    <td><a href="https://www.blocktrail.com/BTC/tx/{{=deposit.txid}}" target="_blank">link</a></td>
+                                    <td class="show-for-medium-up">{{=deposit.created}}</td>
+                                </tr>
+                            {{~}}
+                        </tbody>
+                    </table>
+                {{??}}
+                    <p>You don't have deposits</p>
+                {{?}}
+
+            </div>
+        </div>
+    </div>
+#}}
+{{#def.include('./template/main_old')}}

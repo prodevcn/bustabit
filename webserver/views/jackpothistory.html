@@ -1,0 +1,30 @@
+{{##def.page_title = 'Transfer' #}}
+
+{{##def.content:
+<div class="content row panel radius">
+    <div class="settings">
+        <div class="small-12 columns sets-content">            
+            <h3><a class="logo-link" href="/play"><i class="fa fa-home"></i></a> &nbsp;Jackpot History</h3>
+            {{?it.content.length > 0}}
+                <table style='margin-top: 20px;'>
+                    <thead>
+                        <tr><td>Username</td><td>Time</td><td>Type</td><td>Winning Prize</td></tr>
+                    </thead>
+                    <tbody>
+                    {{~it.content :row:index}}
+                        <tr>
+                            <td>{{= row['username'] }}</td>
+                            <td>{{= it.getCurrentTime(row['time']) }}</td>
+                            <td>{{= row['value'] }}</td>
+                            <td>{{= row['prize'] / 100 }}</td>
+                        </tr>
+                    {{~}}
+                    </tbody>
+                </table>
+            <br>
+            {{?}}
+        </div>
+    </div>
+</div>
+#}}
+{{#def.include('./template/main_old')}}

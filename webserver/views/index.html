@@ -1,0 +1,508 @@
+<script>
+    function load() {
+        setTimeout(() => {
+            var username = localStorage.getItem('username');
+        }, 1000);
+    }
+    window.onload = load;
+    function openNav() {
+        var username = localStorage.getItem('username');
+        document.getElementsByTagName("body")[0].style.overflow="auto";
+        document.getElementById("black-screen").style.display="block";
+        if (!username) {
+            document.getElementById("sideMenu-login").style.right="-640";
+            document.getElementById("sideMenu").style.right="0";
+        } else {
+            document.getElementById("username").innerHTML = username;
+            document.getElementById("sideMenu").style.right="-320px";
+            document.getElementById("sideMenu-login").style.right="0";
+        }
+    }
+    function closeNav() {
+        document.getElementsByTagName("body")[0].style.overflow="auto";
+        document.getElementById("black-screen").style.display="none";
+        document.getElementById("sideMenu").style.right="-320px";
+        document.getElementById("sideMenu-login").style.right="-640px";
+    }
+    function logout() {
+        if (document.getElementById('logout') ) {
+            if (confirm("Are you sure you want to log out?")) {
+                localStorage.removeItem('username');
+                document.getElementById("logout").submit();
+            }
+        }
+    }
+ </script>
+{{##def.page_title = 'The Social Bitcoin Gambling Game' #}}
+
+{{##def.content:
+    <div id="black-screen" onclick="closeNav()"></div>
+    <div class="sidebar" id="sideMenu">
+        <div class="sidebar__content" >
+            <div class="sidebar__welcome">Welcome To</div>
+            <div class="sidebar__to">SonicXRocket</div>
+            <p>Multiply your Bitcoin in seconds. Log in to your account or create a new one in one click.</p>
+            <div class="sidebar__buttons"><a href="/login" class="button button_blue button_small">Log in</a><a
+                    href="/register" class="button button_orange button_small">Sign up</a></div>
+        </div>
+        <ul class="nav nav_special">
+            <li><a href="/faq#fair"><span class="nav__icon"><i class="fa fa-gavel" style="font-size:24px"></i></span>Provably fair</a></li>
+        </ul>
+        <ul class="nav">
+            <li><a href="/leaderboard"><span class="nav__icon"><i class="fa fa-star" style="font-size:24px"></i></span>Hall of Fame</a></li>
+            <li><a href="/guide"><span class="nav__icon"><i class="fa fa-rocket" style="font-size:24px"></i></span>How to Play</a></li>
+            <li><a href="faq"><span class="nav__icon"><i class="fa fa-comment-o" style="font-size: 24px;"></i></span>FAQ</a></li>
+            <!-- <li><a href="jackpots"><span class="nav__icon"></span>How Jackpots Work</a></li> -->
+            
+            <li><a href="/contact/"><span class="nav__icon"><i class="fa fa-envelope-o" style="font-size:24px"></i></span>Contact</a></li>
+        </ul>
+    </div>
+    <div class="sidebar" id="sideMenu-login">
+        <form action="/logout" method="post" id="logout"></form>
+        <div class="sidebar__content" >
+            <div class="sidebar__to" id="username">username</div>
+            <p>Multiply your Bitcoin in seconds. Log in to your account or create a new one in one click.</p>
+            
+        </div>
+        <ul class="nav" id="menu_nav">
+            <li><a href="/play"><span class="nav__icon"><i class="fa fa-rocket"></i></span>SonicxRocket</a></li>
+            <li><a href="/deposit"><span class="nav__icon"><i class="fa fa-download"></i></span>DEPOSIT</a></li>
+            <li><a href="/withdraw"><span class="nav__icon"><i class="fa fa-upload"></i></span>WITHDRAW</a></li>
+            <li><a href="/transactions"><span class="nav__icon"><i class="fa fa-share-alt"></i></span>TRANSACTIONS</a></li>
+            <li><a href="/leaderboard"><span class="nav__icon"><i class="fa fa-users" style="font-size:24px"></i></span>AFFILIATE</a></li>
+            <li><a href="/bonus"><span class="nav__icon"><i class="fa fa-gift"></i></span>BONUS</a></li>
+            <hr>
+            <li><a href="/bankroll"><span class="nav__icon"><i class="fa fa-university"></i></span>BANKROLL</a></li>
+            <li><a href="/faq#fair"><span class="nav__icon"><i class="fa fa-gavel"></i></span>PROVABLY FAIR</a></li>
+            <hr>
+            <li><a href="/change-password"><span class="nav__icon"><i class="fa fa-ellipsis-h"></i></span>CHANGE PASSWORD</a></li>
+            <li><a href="/two-factor"><span class="nav__icon"><i class="fa fa-google-plus-square"></i></span>TWO FACTOR AUTHENTICATION</a></li>
+            <hr>
+            
+            <li><a href="/leaderboard"><span class="nav__icon"><i class="fa fa-star" style="font-size:24px"></i></span>Hall of Fame</a></li>
+            <li><a href="/guide"><span class="nav__icon"><i class="fa fa-rocket" style="font-size:24px"></i></span>How to Play</a></li>
+            <li><a href="/faq"><span class="nav__icon"><i class="fa fa-comment-o" style="font-size: 24px;"></i></span>FAQ</a></li>
+            <li><a href="/privacy-policy"><span class="nav__icon"><i class="fa fa-book" style="font-size: 24px;"></i></span>Terms & Conditions</a></li>
+            
+            <li><a href="/contact/"><span class="nav__icon"><i class="fa fa-envelope-o" style="font-size:24px"></i></span>Contact</a></li>
+            <hr>
+            <li><a onclick="logout()"><span class="nav__icon"><i class="fa fa-sign-out" style="font-size:24px"></i></span>Logout</a></li>
+        </ul>
+    </div>
+    <div class="above_fold" id="above-fold">
+        <div class="header__container">
+            <div class="header__logo jackpot-hide-on-mobile"><img src="img/logo-rocketpot.svg"><span>SonicXRocket</span></div>
+        </div>
+        <div class="header__jackpot header__jackpot-desktop">
+            <div class="header__jackpot__stats">
+                <dl class="jackpot jackpot_3 jackpot-hide-on-mobile">
+                    <dt>MEGA JACKPOT:&nbsp;</dt>
+                    <dd name="mega-jp-value">0.100 BTC</dd>
+                </dl>
+                <dl class="jackpot jackpot_3 jackpot-show-on-mobile">
+                    <dt>MEGA JACKPOT&nbsp;</dt><br>
+                    <dd name="mega-jp-value-2">0.100 BTC</dd>
+                </dl>
+                <dl class="jackpot jackpot_2 jackpot-hide-on-mobile">
+                    <dt>MAJOR JACKPOT:&nbsp;</dt>
+                    <dd name="major-jp-value">0.050 BTC</dd>
+                </dl>
+                <dl class="jackpot jackpot_1 jackpot-hide-on-mobile">
+                    <dt>MINI JACKPOT:&nbsp;</dt>
+                    <dd name="mini-jp-value">0.005 BTC</dd>
+                </dl>
+            </div><a class="burger hall-of-fame" href="/leaderboard"><span class="hall-of-fame-full">HALL OF
+                    FAME</span><span class="hall-of-fame-short">FAME</span></a>
+        </div>
+        <div class="header__menu"><button class="burger js-nav" onclick="openNav()"><i class="fa fa-bars"></i>&nbsp;<span>Menu</span></button></div>
+        <div class="hero__container">
+            <div class="header__jackpot header__jackpot-mobile">
+                <div class="header__jackpot__stats">
+                    <dl class="jackpot jackpot_3 jackpot-hide-on-mobile">
+                        <dt>MEGA JACKPOT:&nbsp;</dt>
+                        <dd name="mega-jp-value">0.100 BTC</dd>
+                    </dl>
+                    <dl class="jackpot jackpot_3 jackpot-show-on-mobile">
+                        <dt>MEGA JACKPOT&nbsp;</dt><br>
+                        <dd name="mega-jp-value-2">0.100 BTC</dd>
+                    </dl>
+                    <dl class="jackpot jackpot_2 jackpot-hide-on-mobile">
+                        <dt>MAJOR JACKPOT:&nbsp;</dt>
+                        <dd name="major-jp-value">0.050 BTC</dd>
+                    </dl>
+                    <dl class="jackpot jackpot_1 jackpot-hide-on-mobile">
+                        <dt>MINI JACKPOT:&nbsp;</dt>
+                        <dd name="mini-jp-value">0.005 BTC</dd>
+                    </dl>
+                </div>
+                <a class="burger hall-of-fame" href="/leaderboard">
+                    <span class="hall-of-fame-full">HALL OF FAME</span>
+                </a>
+            </div>
+            <div class="hero__image-container"><img class="hero__border"
+                    src="img/landing-hero-border.svg"> <img
+                    class="hero__main"
+                    src="img/landing-hero-main2.png"> <img
+                    class="hero__bg" src="img/landing-hero-bg.svg">
+            </div>
+            <div class="cta__container">
+                <div class="gotoaction">
+                    <h1 class="big-title">Multiply Your&nbsp;Bitcoin</h1>
+                    <div class="buttons"><a href="/play" class="button button_orange play_button">Play
+                            now</a></div>
+                </div>
+            </div>
+            <div class="tooltip__container">
+                <div class="tooltip__main">
+                    <div class="tooltip__item"><span><img class="icon"
+                                src="img/icon_instant-double.svg"></span>
+                    </div>
+                    <div class="tooltip__item"><span class="tooltip__item__text">&nbsp;Limited-Time Offer:&nbsp;</span></div>
+                    <div class="tooltip__item">
+                        <div class="accept">Get up to&nbsp;<strong>1 Bitcoin</strong>welcome bonus</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main_section main_section__dark main_section__narrow">
+        <div class="well">
+            <div class="well">
+                <div class="stats-container">
+                    <div class="single-stat">
+                        <div class="single-stat__icon stat-bankroll"></div>
+                        <p class="single-stat__value"><span class="js-stat-bankroll">--</span>mBTC</p>
+                        <p class="single-stat__label">Bankroll</p>
+                    </div>
+                    <div class="single-stat">
+                        <div class="single-stat__icon stat-house-edge"></div>
+                        <p class="single-stat__value">Less than&nbsp;<span class="js-stat-edge">1.5</span>%*</p>
+                        <p class="single-stat__label">House Edge</p>
+                    </div>
+                    <div class="single-stat">
+                        <div class="single-stat__icon stat-max-bet"></div>
+                        <p class="single-stat__value"><span class="js-stat-max-bet">--</span>mBTC</p>
+                        <p class="single-stat__label">Max Bet</p>
+                    </div>
+                    <div class="single-stat">
+                        <div class="single-stat__icon stat-max-profit"></div>
+                        <p class="single-stat__value"><span class="js-stat-max-profit">--</span>mBTC</p>
+                        <p class="single-stat__label">Max Profit</p>
+            </div>
+                    <div class="single-stat">
+                        <div class="single-stat__icon stat-bet-volume"></div>
+                        <p class="single-stat__value"><span class="js-stat-bet-volume">1000</span>mBTC</p>
+                        <p class="single-stat__label">Bet Volume</p>
+                    </div>
+                </div>
+            </div>
+            <div class="main_section__container main_section__container-narrow">
+                <div class="main_section__text">
+                    <h3 class="title">Watch Your Bitcoins Multiply</h3>
+                    <p class="copy">SonicXRocket is a Bitcoin casino game. Place a bet and watch your bitcoins multiply! Cash
+                        out anytime to get your bet multiplied by that multiplier - but make sure to do it before the rocket
+                        crashes.</p>
+                </div>
+                <div class="main_section__image"><img src="img/feature-multiply-bitcoins.svg" alt="Watch" your=""
+                        bitcoins="" multiply=""></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_section">
+        <div class="well">
+            <div class="main_section__container">
+                <div class="main_section__text">
+                    <h3 class="title">Hunt the Jackpots</h3>
+                    <p class="copy">Every round brings you the chance to win one of the jackpots! If the rocket doesn’t
+                        crash before the 50x multiplier you have a chance to win the jackpot regardless whether you cashed
+                        out before or not.</p>
+                </div>
+                <div class="main_section__image"><img src="img/feature-hunt-jackpots.svg" alt="Hunt" the=""
+                        jackpots=""></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_section main_section__dark">
+        <div class="well">
+            <div class="main_section__container">
+                <div class="main_section__text">
+                    <h3 class="title">Roll the Dice</h3>
+                    <p class="copy">Our new Dice game gives you the possibility to place streaks of bets with super fast
+                        outcomes. Choose a number that you predict the dice roll will land - over or under - place a wager
+                        and see if you won!</p>
+                </div>
+                <div class="main_section__image"><img src="img/feature-roll-the-dice.svg" alt="Roll" the=""
+                        dice=""></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_section">
+        <div class="well">
+            <div class="main_section__container">
+                <div class="main_section__text">
+                    <h3 class="title">Level Up to Unlock Rewards</h3>
+                    <p class="copy">Every bet placed on SonicXRocket counts as experience points towards levelling up. Each
+                        level unlocks a prize chest for you that contains guaranteed rewards. The chests are provably fair
+                        and the prizes values increase with every level, culminating with guaranteed Lamborghini at the end
+                        of your journey!</p>
+                </div>
+                <div class="main_section__image"><img src="img/feature-level-up.svg" alt="Level" up="" to=""
+                        unlock="" rewards=""></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_section main_section__dark">
+        <div class="well">
+            <div class="main_section__container">
+                <div class="main_section__text">
+                    <h3 class="title">Play With Friends</h3>
+                    <p class="copy">Play with friends in real-time &amp; see who can HODL the longest! All the players
+                        participate in the same live round and can see how they fared against each other on the leaderboard.
+                    </p>
+                </div>
+                <div class="main_section__image"><img src="img/feature-play-with-friends.svg" alt="Play" with=""
+                        friends=""></div>
+            </div>
+        </div>
+    </div>
+    <div class="main_section">
+        <div class="well">
+            <div class="main_section__container">
+                <div class="main_section__text">
+                    <h3 class="title">Bet on the House</h3>
+                    <p class="copy">You can also multiply your bitcoin by investing in the SonicXRocket bankroll! By
+                        participating in the bankroll - which is used to pay out winning players - you essentially bet on
+                        the house, giving you a % of the house profits. Because SonicXRocket’s risk management policy includes
+                        adjusting for the Kelly criterion, a larger bankroll enables us to increase the maximum bet.</p>
+                </div>
+                <div class="main_section__image"><img src="img/feature-bet-on-the-house.svg" alt="Bet" on="" the=""
+                        house=""></div>
+            </div>
+        </div>
+    </div>
+    <div class="security_section__bg">
+        <div class="well">
+            <div class="security_section">
+                <h2 class="security_section__title">Security (Nerd Alert!)</h2>
+                <div class="security_section__text">
+                    <div class="security_section__container">
+                        <h3 class="title">Provably Fair</h3>
+                        <p class="copy">SonicXRocket is a provably fair bitcoin gambling game. It’s a win-win because the
+                            players know the house can’t cheat and the house gains confidence that all wins are
+                            legitimate!<a href="faq#fair" class="styled-link styled-link__blue">&nbsp;Click
+                                here&nbsp;</a>for more information on our provably fair system.</p>
+                    </div>
+                    <div class="security_section__container">
+                        <h3 class="title">Multisig Cold Storage</h3>
+                        <p class="copy">The majority of the funds are securely held in cold storage with keys held by
+                            multiple signatories, making it considerably safer against hacks, theft or otherwise loss.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_section main_section__narrow">
+        <div class="well">
+            <div class="text-block">
+                <div class="rocket-block"><img src="img/feature-rocket.svg" alt="" class="rocket-block--image">
+                </div>
+                <h2 class="text-block__title text-block__title--small-margin">To the moon with SonicXRocket’s<span
+                        class="text-block__title--colored">Bitcoin Casino Crash Game</span></h2>
+                <p class="text-block__subtitle text-block__subtitle">Welcome to SonicXRocket, the best Bitcoin Casino Crash
+                    Game online!</p>
+                <div class="text-block__container">
+                    <div class="side">
+                        <p class="text-block__copy text-block__copy--intro">Fasten your seat belts and countdown to liftoff.
+                            Try your luck as you clear the skies on a quest for Bitcoin rewards! And then watch moments
+                            later as the rockets go out in a crash of bountiful explosions!</p>
+                        <div class="text-block__copy">In the past few years, bitcoin games have steadily become one of the
+                            most popular online applications for cryptocurrency use. Players are greeted by a streamlined
+                            gambling experience that avoids much of the hassle of traditional online casinos, while allowing
+                            instead for an array of great features that enhance play. The best bitcoin casinos use provably
+                            fair algorithms (powered by blockchain technology) to guarantee that the results of every game
+                            are completely random, thus guaranteeing that every result is fair and verifiable.</div>
+                    </div>
+                    <div class="side">
+                        <div class="text-block__copy">Whereas most online casinos look to replicate the real world
+                            experience with virtual live dealer games and traditional table games (such as blackjack,
+                            baccarat, roulette, and slots), more recent offerings have also introduced exciting new games
+                            for specific use with cryptocurrencies. SonicXRocket’s bitcoin crash game is one of these new such
+                            options and it enjoys many advantages that have helped it quickly become one of the most popular
+                            online BTC casino games. Players on this site benefit from provably fair algorithms, extremely
+                            fast deposits and withdrawals, and the comfort of playing in a venue that's licensed and
+                            regulated registered under an official Curacao gaming license. When you gamble here, you can
+                            simply enjoy an exhilarating game safe in the knowledge that the casino is officially governed,
+                            and that any bitcoin payment to/from the casino will be safe.</div>
+                        <div class="text-block__copy">All in all, SonicXRocket offers a fun and exciting way to increase your
+                            BTC holdings.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_section main_section__dark">
+        <div class="well">
+            <div class="text-block text-block--extra-bottom-padding">
+                <h2 class="text-block__title text-block__title--tiny-margin">Getting Started with SonicXRocket</h2>
+                <p class="text-block__subtitle">Want to enjoy some outer space action?</p>
+                <div class="text-block__container">
+                    <div class="side">
+                        <p class="text-block__copy text-block__copy--intro">Signing up to use SonicXRocket’s online casino is
+                            an easy and streamlined process. You just need to click on the<span class="blue-text">sign-up
+                                button</span>from the drop down menu on the upper right corner of the screen, from then on
+                            you can then choose to join using a Google or Facebook account, or create a unique login using
+                            your email address.</p>
+                        <div class="text-block__copy">Once you have created your account, you would just need to deposit BTC
+                            into your casino wallet in order to play and chat with other players. Fortunately, SonicXRocket
+                            employs a fast and efficient deposit and withdrawal system that can help you get started as
+                            quickly as possible. Sometimes when you perform transfers to online cryptocurrency exchange
+                            wallets (or other similar websites), you may have to wait for many confirmations before the
+                            transaction shows up in your account. That is not the case when you play here, since SonicXRocket
+                            only requires one confirmation before funds sent from your personal wallet become available for
+                            use within the casino. The whole process, from signing up, to starting your first game, can be
+                            completed within a couple of minutes. Once your BTC has been deposited, you are ready to go and
+                            start playing! Great ready for liftoff!</div>
+                    </div>
+                    <div class="side">
+                        <div class="text-block__copy">SonicXRocket’s crash game is simple to understand, but challenging to
+                            master. Each game starts as the rocket ignites, and features an ever-rising multiplier. Every
+                            round, players stake BTC on a certain multiplier being reached, which can be anything from 1.1x
+                            to 1,000,000,000x (yes, that’s 1 billion times!) If your multiplier is reached before the game
+                            crashes, your stake will be multiplied by that amount. The smallest bet you can place on the
+                            game is 0.25mBTC, which is 0.25 thousandths of one bitcoin (0.00025BTC). So, if you choose a 2x
+                            multiplier and a 0.25 mBTC bet, you will receive 0.5mBTC if the multiplier rises above 2x before
+                            crashing. The bigger the multiplier you choose, the more you win. Of course, lower multipliers
+                            will be reached more frequently than higher ones. So the main challenge of SonicXRocket’s bitcoin
+                            casino crash game is to strike the right balance between betting big and making a regular return
+                            payment.</div>
+                        <div class="text-block__copy">SonicXRocket also has a special jackpot rounds which are triggered when
+                            the multiplier rises above a certain point. Some players use a strategy of making a small
+                            multiplier bet each round (in hopes of receiving regular bitcoin payments from the casino game)
+                            and then strike it back with a lucky jackpot spin.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main_section main_section__narrow">
+        <div class="well">
+            <div class="text-block">
+                <h2 class="text-block__title text-block__title--small-margin">Why Use SonicXRocket?</h2>
+                <p class="text-block__subtitle text-block__subtitle--small">SonicXRocket´s exclusively offers provably fair
+                    games which employ the use algorithms to determine outcomes, thus guaranteeing results are completely
+                    random and fair.</p>
+                <div class="text-block__container">
+                    <div class="side">
+                        <p class="text-block__copy text-block__copy--intro">They are randomly generated prior to each game
+                            and they are based on hashes from the bitcoin ledger. The block for a hash is announced before
+                            the block is mined, ensuring that the numbers contained within the hash are completely random
+                            and verifiable.</p>
+                        <div class="text-block__copy">You'll be glad to find that we also maintain a lower house edge than
+                            what most bitcoin casinos offer. We use a dynamic house edge that never rises above 1.5%, which
+                            gives SonicXRocket a very high return to player (RTP) rate for bets made on the site. This means
+                            that over time, 98.5% of all BTC bet amounts on SonicXRocket’s crash game will be returned to
+                            players. The exact house edge varies on each game as the amount bet and number of players
+                            contributing changes, but it will never exceed 1.5%.</div>
+                        <div class="text-block__copy">Fast deposits to the SonicXRocket wallet mean new users can enjoy an
+                            exciting gambling experience within minutes of making their first payment. Likewise, withdrawals
+                            are processed almost immediately much to our customer's delight.Our professional support team is
+                            available 24/7 if you ever need help to play our selection of games.</div>
+                    </div>
+                    <div class="side">
+                        <div class="text-block__copy">Jackpot rounds give all players an equal chance to win big relative to
+                            the amount they bet on each game round. If a jackpot is triggered, the jackpot payment is shared
+                            among all players. If a fixed prize amount is hit then the player who spun the wheel keeps the
+                            entire payment.</div>
+                        <div class="text-block__copy">Players can use an auto cashout feature to automatically receive
+                            payment of their winnings once a certain multiplier has been reached. This is automatically set
+                            to 2500x but it can be changed by the player at any time during the game.</div>
+                        <div class="text-block__copy">Unlike other bitcoin casinos, SonicXRocket is officially licensed and
+                            regulated under a certified Curacao gaming license.</div>
+                        <div class="text-block__copy">We accept player sign-ups from any country, including American users.
+                        </div>
+                        <div class="text-block__copy">Deposit Bonuses are available and can be seen on the drop down menu
+                            while logged in.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main_section main_section__dark main_section__narrow">
+        <div class="well">
+            <div class="text-block">
+                <h2 class="text-block__title">FAQ</h2>
+                <div class="text-block__container">
+                    <div class="side">
+                        <div class="question-block">
+                            <h3 class="question-title">How long do withdrawals take?</h3>
+                            <p class="question-answer">SonicXRocket aims to make withdrawals to your personal wallet as fast as
+                                possible while maintaining security. When you initiate a withdrawal, you’ll be sent a
+                                confirmation email. Click the link and your withdrawal of your crash game BTC funds will be
+                                processed immediately.</p>
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question-title">How often are jackpots triggered?</h3>
+                            <p class="question-answer">Jackpots are triggered whenever the multiplier reaches the listed
+                                threshold. Due to the game being completely random, this can happen at any time. The jackpot
+                                amounts are reset after being won.</p>
+                        </div>
+                    </div>
+                    <div class="side">
+                        <div class="question-block">
+                            <h3 class="question-title">Can I make a payment to SonicXRocket's casino wallet using other
+                                cryptocurrencies (e.g. LTC, Ethereum, etc.)?</h3>
+                            <p class="question-answer">No. The only payment currency accepted for SonicXRocket's casino game is
+                                bitcoin.</p>
+                        </div>
+                        <div class="question-block">
+                            <h3 class="question-title">Did You Know?</h3>
+                            <p class="question-answer">— The first online casino opened in 1994. By 2018, the online casino
+                                industry was worth over $50 billion.</p>
+                            <p class="question-answer">— The biggest online casino payout in 2019 was €4,333,667.97. This
+                                sum went to the lucky winner of a Mega Fortune Dreams slot game.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cta__container_dark">
+        <div class="gotoaction gotoaction--footer">
+            <h2 class="big-title">The Best Bitcoin Casino Gambling Game</h2>
+            <div class="buttons"><a href="/register" class="button button_orange">Sign Up</a><span
+                    class="or">or</span><a href="/login" class="button button_blue">Login</a></div>
+            <div class="accept">We accept only&nbsp;<strong>Bitcoin</strong></div>
+        </div>
+    </div>
+    <div class="footer"><a href="base href=&quot;/&quot;" class="header__logo"><img
+        src="img/logo-rocketpot.svg"><span>SonicXRocket</span></a>
+<div class="footer__links"><a href="faq#fair">Provably Fair</a><a href="/guide">How To Play</a><a
+        href="jackpots">HOW JACKPOTS WORK</a><a
+        href="play/contact/">Contact</a></div>
+<div class="footer__copyright_icons_group">
+    <div class="footer__copyright copyright">
+        <div class="copyright__text">© 2020 Sox Ventures B.V.</div>
+        <div class="footer__copyright__links_group">
+            <ul class="footer__copyright__links copyright__links">
+                <li class="copyright__item"><a href="privacy-policy/" class="copyright__link"><span>Privacy
+                            Policy</span></a></li>
+                <li class="copyright__item copyright__item--circle"><span></span></li>
+                <li class="copyright__item"><a href="terms-of-service/" class="copyright__link"><span>Terms and
+                            conditions</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer__icons_group">
+        <div class="footer__18plus"><span class="nav__icon"><img class="icon" src="img/18_plus.svg"></span>
+        </div>
+        
+        <script type="text/javascript"
+            src="https://dd7c3c6c-152e-43ac-a977-0d86245997f5.curacao-egaming.com/ceg-seal.js"></script>
+    </div>
+</div>
+</div>
+    
+#}}
+{{#def.include('./template/main_new')}}

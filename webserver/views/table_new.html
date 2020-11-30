@@ -1,0 +1,100 @@
+{{##def.page_title = 'Play' #}}
+
+{{##def.content:
+    <div id="game-container" style="opacity: 0"></div>
+    <div id="game-container-placeholder" style="left: 50%; position: absolute; top: 50%; margin-left: -160px; margin-top: -85px;">
+        <style>
+            .preloader__road {
+            width: 80px;
+            margin: 0 auto;
+            position: relative;
+            height: 150px;
+            background-color: transparent;
+            overflow: hidden;
+            transition: 0.5s;
+            }
+            @keyframes lines {
+                from {
+                    transform: translateY(-150px);
+                }
+                to {
+                    transform: translateY(150px);
+                }
+            }
+
+            .preloader__first-line {
+                opacity: 0.4;
+                height: 98px;
+                background-color: #57545A;
+                width: 2px;
+                position: absolute;
+                left: 0;
+                top: 30px;
+                animation: lines 1s infinite;
+            }
+
+            .preloader__second-line {
+                height: 36px;
+                background-color: #57545A;
+                width: 2px;
+                position: absolute;
+                left: 33%;
+                top: 0;
+                animation: lines 0.7s infinite;
+            }
+
+            .preloader__second-line:after {
+                content: '';
+                position: absolute;
+                background-color: #57545A;
+                width: 2px;
+                height: 10px;
+                bottom: -10px;
+                transform: translateY(100%);
+            }
+
+            .preloader__third-line {
+                opacity: 0.2;
+                height: 56px;
+                background-color: #57545A;
+                width: 2px;
+                position: absolute;
+                top: 30px;
+                left: 66%;
+                animation: lines 0.5s infinite;
+            }
+
+            .preloader__fourth-line {
+                animation: lines 1.1s infinite;
+                height: 86px;
+                background-color: #57545A;
+                width: 2px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+        </style>
+        <div class="preloader__road is-hidden" id="preloader__road">
+            <div class="preloader__image is-hidden" id="preloader__image">
+                <img style="margin-left:23px; margin-top:50px;" width="33px" height="45px" src="https://play.rocketpot.io/play/src/images/rocket.svg">
+            </div>
+            <div class="preloader__first-line"></div>
+            <div class="preloader__second-line"></div>
+            <div class="preloader__third-line"></div>
+            <div class="preloader__fourth-line"></div>
+        </div>
+        <div class="preloader__progress">
+            <div class="preloader__progress-line">
+                <div class="preloader__progress-bar"></div>
+            </div>
+            <div style='text-align:center; color: yellow' class="preloader__progress-text">Checking your browser for cookies...</div>
+        </div>
+    </div>
+
+    <!--RequireJs-->
+    <script data-main="/scripts/main" src="{{? it.buildConfig }}/scripts/{{=it.buildConfig['main-new.js']}}{{??}}/node_modules/requirejs/require.js{{?}}"></script>
+
+    <!-- Detect the viewport size with css and javascript hack -->
+    <div id="handheld-detection"></div>
+#}}
+{{#def.include('./template/game_new')}}

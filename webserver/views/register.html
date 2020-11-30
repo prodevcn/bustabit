@@ -1,0 +1,106 @@
+{{##def.page_title = 'Register' #}}
+
+{{##def.content:
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script type="text/javascript">
+    function enableSubmit() {
+        $('#registerSubmit').addClass('gppassed');
+    }
+
+    function randomPassword(len) {
+        var chars = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNP123456789";
+        if (window && window.crypto && window.crypto.getRandomValues && Uint32Array && Uint32Array.prototype.reduce) {
+            return window.crypto.getRandomValues(new Uint32Array(len))
+                .reduce(function(p, n) { return p + chars[n % chars.length] }, "");
+        } else {
+            console.warn('Falling back to pseudo-random client seed');
+            var pass = "";
+            for (var i = 0; i < len; ++i)
+                pass += chars[Math.floor(Math.random() * chars.length)];
+            return pass;
+        }
+    }
+
+
+    function generate() {
+        document.getElementById('password').value = randomPassword(10);
+    }
+    function confirm() {
+        document.getElementById("black-screen").style.display="block";
+        return true;
+    }
+</script>
+    <div id="black-screen1"></div>
+
+        <div class="content panel radius">
+            <a href="/play">
+                <span class="back-arrow">
+                    <i class="fa fa-arrow-left"></i>
+                </span>
+            </a>
+            <div class="dlg-container">
+                <div class="dlg-title">
+                    Sign Up Instantly
+                </div>
+<<<<<<< HEAD
+                <form class="login-form" action="/register" method="post" onsubmit="return confirm();">
+    
+=======
+                <form class="login-form" action="/register" method="post" onsubmit="return checkForm();">
+                    <script>
+                        function checkForm() {
+                            if ($(".gppassed")[0]) return true;
+                            return false;
+                        }
+                    </script>
+>>>>>>> a5124585d3d605f7804c727ae0e8fa44e7ce3139
+                    <input id="fp" name="user[fp]" type="hidden" value=""/>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" value="{{?it.values}}{{!it.values.email}}{{?}}" placeholder="you@email.com" name="user[email]" autocomplete="off"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label for="username">Username</label>
+                            <input id="username" type="text" name="user[name]" value="{{?it.values}}{{!it.values.name}}{{?}}" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <label for="password">Password</label>
+                            <input id="password" type="text" value="{{?it.values}}{{!it.values.password}}{{?}}" name="user[password]" autocomplete="off" pattern=".{7,200}"  required style="font-weight: bold;"/>
+                            <button type="button" class="refresh-btn" onClick="generate();" tabindex="2" ><i class="fa fa-refresh"></i></button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <input id="registerSubmit" class="button secondary center register-btn" type="submit" value="Register"/>
+                        </div>
+                    </div>   
+                    <div class="row">
+                        <div class="g-recaptcha right" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div>
+                    </div>
+                    <div class="row">
+                        <div class="large-12 columns">
+                            <p>
+                                By signing up I attest that I am at least 18 years old and have read the <a href="/guide">Guide</a>
+                            </p>
+                            <p>
+                                Already have an account ? <a href="/login">Log in</a>
+                            </p>
+                        </div>
+                    </div>                    
+                </form>
+            </div>
+        </div>
+
+<script type="text/javascript">
+    generate();
+</script>
+
+<script src="{{? it.buildConfig }}/old/lib/fingerprintjs2/fingerprint2.min.js{{??}}/client_old/lib/fingerprintjs2/fingerprint2.min.js{{?}}"></script>
+<script>new Fingerprint2().get(function(fp){document.getElementById('fp').setAttribute('value',fp);});</script>
+#}}
+{{#def.include('./template/main_old')}}

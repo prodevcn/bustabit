@@ -1,0 +1,201 @@
+{{##def.page_title = 'Bankroll' #}}
+
+{{##def.content:
+    <script type="text/javascript">
+        function goHome() {
+            location.assign("/play");
+        }
+        function setTab(index) {
+            switch (index) {
+                case 1:
+                    document.getElementById('overview_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('invest_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('divest_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('history_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('overview').style="display: block;";
+                    document.getElementById('invest').style="display: none;";
+                    document.getElementById('divest').style="display: none;";
+                    document.getElementById('history').style="display: none;";
+                    break;
+                case 2:
+                    document.getElementById('overview_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('invest_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('divest_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('history_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('overview').style="display: none;";
+                    document.getElementById('invest').style="display: block;";
+                    document.getElementById('divest').style="display: none;";
+                    document.getElementById('history').style="display: none;";
+                    break;
+                case 3:
+                    document.getElementById('overview_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('invest_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('divest_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('history_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('overview').style="display: none;";
+                    document.getElementById('invest').style="display: none;";
+                    document.getElementById('divest').style="display: block;";
+                    document.getElementById('history').style="display: none;";
+                    break;
+                default:
+                    document.getElementById('overview_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('invest_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('divest_tab').style="color: #999; border-bottom: none;";
+                    document.getElementById('history_tab').style="color: white; border-bottom: 2px solid white;";
+                    document.getElementById('overview').style="display: none;";
+                    document.getElementById('invest').style="display: none;";
+                    document.getElementById('divest').style="display: none;";
+                    document.getElementById('history').style="display: block;";
+                    break;
+            }
+        }
+    </script>
+<div class="row faq panel radius">
+    <h3><a class="logo-link" href="/play"><i class="fa fa-times"></i></a></h3>
+    <div class="modal-container">
+        <div style="width:60%; margin: 0 auto 1rem; text-align:center;font-size: 1.5rem;">
+            Bonus
+        </div>
+        <ul class="head_tab">
+            <li class="head_tab_item" id="overview_tab" onclick="setTab(1)">Overview</li>
+            <li class="head_tab_item" id="invest_tab" onclick="setTab(2)">Invest</li>
+            <li class="head_tab_item" id="divest_tab" onclick="setTab(3)">Divest</li>
+            <li class="head_tab_item" id="history_tab" onclick="setTab(4)">History</li>
+        </ul>
+        <div id="overview">
+            <div class="dlg_content">
+                <p class="content_text title">{{=it.user.username}}</p>
+                <p class="content_text title blue">0.000000% of Total Bankroll</p>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p class="small1">YOUR</p>
+                        <p class="small1">CURRENT BANKROLL</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                    <div class="large-6 columns">
+                        <p class="small1">WEBSITE</p>
+                        <p class="small1">CURRENT BANKROLL</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p class="small1">YOUR</p>
+                        <p class="small1">INVESTING PROFIT</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                    <div class="large-6 columns">
+                        <p class="small1">AGGREGATED</p>
+                        <p class="small1">INVESTORS</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <input id="cancel" class="button secondary center cancel-btn" type="button" onclick="goHome()" value="CLOSE"/>
+                    </div>
+                    <div class="large-6 columns">
+                        <input id="registerSubmit" class="button secondary center register-btn small" onclick="setTab(2)" type="button" value="CHECK BONUS"/>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div id="invest">
+            <div class="dlg_content">
+                <p class="content_text small grey">Only invest if you fully understand the consequences.</p>
+                <p class="content_text small grey">The minimum amount you can invest is 1000$USD</p>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label for="password">Amount in $USD</label>
+                        <input id="invest_amount" type="text"  name="invest_amount" autocomplete="off" pattern=".{7,50}"  required style="font-weight: bold;"/>
+                        <button type="button" class="setMaxBtn">MAX AMOUNT</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p class="small1">YOUR</p>
+                        <p class="small1">CURRENT BANKROLL</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                    <div class="large-6 columns">
+                        <p class="small1">WEBSITE</p>
+                        <p class="small1">CURRENT BANKROLL</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p class="small1">YOUR</p>
+                        <p class="small1">INVESTING PROFIT</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                    <div class="large-6 columns">
+                        <p class="small1">AGGREGATED</p>
+                        <p class="small1">INVESTORS</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <input id="cancel" class="button secondary center cancel-btn" type="button" onclick="goHome()" value="CLOSE"/>
+                    </div>
+                    <div class="large-6 columns">
+                        <input id="registerSubmit" class="button secondary center register-btn small" onclick="setTab(2)" type="button" value="CHECK BONUS"/>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="divest">
+            <div class="dlg_content">
+                <p class="content_text small grey">Only invest if you fully understand the consequences.</p>
+                <p class="content_text small grey">The minimum amount you can invest is 1000$USD</p>
+                <div class="row">
+                    <div class="large-12 columns">
+                        <label for="password">Amount in $USD</label>
+                        <input id="invest_amount" type="text"  name="invest_amount" autocomplete="off" pattern=".{7,50}"  required style="font-weight: bold;"/>
+                        <button type="button" class="setMaxBtn">MAX AMOUNT</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p class="small1">YOUR</p>
+                        <p class="small1">CURRENT BANKROLL</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                    <div class="large-6 columns">
+                        <p class="small1">WEBSITE</p>
+                        <p class="small1">CURRENT BANKROLL</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <p class="small1">YOUR</p>
+                        <p class="small1">INVESTING PROFIT</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                    <div class="large-6 columns">
+                        <p class="small1">AGGREGATED</p>
+                        <p class="small1">INVESTORS</p>
+                        <p style="color:gold;">$0.00</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="large-6 columns">
+                        <input id="cancel" class="button secondary center cancel-btn" type="button" onclick="goHome()" value="CLOSE"/>
+                    </div>
+                    <div class="large-6 columns">
+                        <input id="registerSubmit" class="button secondary center register-btn small" onclick="setTab(2)" type="button" value="CHECK BONUS"/>
+                    </div>
+                </div>
+        </div>
+        <div id="history">
+            
+        </div>
+    </div>
+
+</div>
+#}}
+{{#def.include('./template/main_old')}}

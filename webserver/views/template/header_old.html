@@ -1,0 +1,33 @@
+<header>
+    
+    <nav class="nav-top-bar">
+
+        <div class="title">
+            <img src="/img/logo-rocketpot.svg">
+            <a href="/">
+                <h1 class="hide-for-small-only">SonicXRocket</h1>
+                <h1 class="show-for-small-only">SxR</h1>
+            </a>
+        </div>
+
+        <div class="show-for-small-up user-login">
+        {{?it.user}}
+            <div class="balance-bits">
+                <span>$USD: </span>
+                <span class="balance" id="balance_bits">{{#def.format:{n: it.user.balance_satoshis, decimals:2} }}</span>
+            </div>
+            <div class="username">
+                <a href="/account">{{=it.user.username}}</a>
+            </div>
+        {{??}}
+            <div class="register">
+                <a href="/register">SIGN UP</a>
+            </div>
+            <div class="login">
+                <a href="/login">LOG IN</a>
+            </div>
+        {{?}}
+        </div>
+
+    </nav>
+</header>

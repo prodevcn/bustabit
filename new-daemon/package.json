@@ -1,0 +1,23 @@
+{
+  "name": "sonicxrocket",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "daemon.js",
+  "author": "jay",
+  "license": "ISC",
+  "dependencies": {
+    "@payus/payus-sdk": "^1.0.5",
+    "async": "^3.2.0",
+    "better-assert": "^1.0.2",
+    "dotenv": "^8.2.0",
+    "fs": "0.0.1-security",
+    "node-fetch": "^2.6.0",
+    "open-exchange-rates": "^0.3.0",
+    "pg": "^8.3.0"
+  },
+  "scripts": {
+    "start-dev": "env $(cat .env | xargs) nodemon daemon.js",
+    "start": "env $(cat .env | xargs) forever start daemon.js"
+  }
+}

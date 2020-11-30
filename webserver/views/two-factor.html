@@ -1,0 +1,55 @@
+{{##def.page_title = 'Affiliate System' #}}
+
+{{##def.content:
+    <script type="text/javascript">
+        function goHome() {
+            location.assign("/play");
+        }
+    </script>
+<div class="row faq panel radius">
+    <h3><a class="logo-link" href="/play"><i class="fa fa-times"></i></a></h3>
+    <div class="modal-container">
+        <div style="width:60%; margin: 0 auto 1rem; text-align:center;font-size: 1.5rem;">
+            Setup Two Factor Authentication
+        </div>
+        <p>
+            To improve your account security we have implemented optional Two Factor Authentication. Use an application like Google Authenticator in order to activate this feature. Scan the QR code with your authenticator app and enter the code you will get below.
+        </p>
+        <p>
+            You can backup secret code to restore access in case device lost:
+        </p>
+        {{?it.user.mfa_secret}}
+            <h4>Disable Two-Factor Authentication</h4>
+            <p class="small">To disable two-factor authentication, please enter your one-time password.</p>
+            <form action="/disable-2fa" method="post">
+                <label>2FA Code
+                    <input name="otp" type="text" pattern="[0-9]{6}" required />
+                </label>
+                <input class="border-button right blue" type="submit" value="Disable" />
+            </form>
+        {{??}}
+            <div class="column medium-12">
+                <small style="color:#34BAFF; font-size:1rem;">{{=it.user.mfa_potential_secret}}</small> <br>
+                <div style="width:50%; background: white; margin: 1rem auto 0;">{{=it.user.qr_svg}}</div>
+            </div>
+            <form class="column medium-12" action="/enable-2fa" method="post">
+                <label>2FA Code </label>
+                    <input type="hidden" name="mfa_potential_secret" value="{{=it.user.mfa_potential_secret}}" />
+                    <input type="hidden" name="sig" value="{{=it.user.sig}}" />
+                    <input name="otp" type="text" pattern="[0-9]{6}" required />
+                <!-- <input class="border-button right blue" type="submit" value="Enable" /> -->
+                <div class="row">
+                    <div class="large-6 columns">
+                        <input id="cancel" class="button secondary center cancel-btn" type="button" onclick="goHome()" value="CANCEL"/>
+                    </div>
+                    <div class="large-6 columns">
+                        <input id="registerSubmit" class="button secondary center register-btn" type="submit" value="ACTIVATE"/>
+                    </div>
+                </div>
+            </form>
+        {{?}}
+    </div>
+</div>
+
+#}}
+{{#def.include('./template/main_old')}}

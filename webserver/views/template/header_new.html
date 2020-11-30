@@ -1,0 +1,99 @@
+<script>
+    function load() {
+        setTimeout(() => {
+            var username = localStorage.getItem('username');
+        }, 1000);
+    }
+    window.onload = load;
+    function openNav() {
+        var username = localStorage.getItem('username');
+        document.getElementsByTagName("body")[0].style.overflow="auto";
+        document.getElementById("black-screen").style.display="block";
+        if (!username) {
+            document.getElementById("sideMenu-login").style.right="-640";
+            document.getElementById("sideMenu").style.right="0";
+        } else {
+            document.getElementById("username").innerHTML = username;
+            document.getElementById("sideMenu").style.right="-320px";
+            document.getElementById("sideMenu-login").style.right="0";
+        }
+    }
+    function closeNav() {
+        document.getElementsByTagName("body")[0].style.overflow="auto";
+        document.getElementById("black-screen").style.display="none";
+        document.getElementById("sideMenu").style.right="-320px";
+        document.getElementById("sideMenu-login").style.right="-640px";
+    }
+    function logout() {
+        if (document.getElementById('logout') ) {
+            if (confirm("Are you sure you want to log out?")) {
+                localStorage.removeItem('username');
+                document.getElementById("logout").submit();
+            }
+        }
+    }
+ </script>
+<div class="above_fold" id="above-fold">
+    <div class="header__container">
+        <div class="header__logo"><img src="/img/logo-rocketpot.svg"><span><a href="/play">SonicXRocket</a></span></div>
+    </div>
+    
+    <div class="header__menu">
+        <button class="burger js-nav" onclick="openNav()">
+            <i class="fa fa-bars"></i> 
+            &nbsp;
+            <span>
+                Menu
+            </span>
+        </button>
+    </div>
+</div>
+<div class="sidebar" id="sideMenu">
+    <div class="sidebar__content" >
+        <div class="sidebar__welcome">Welcome To</div>
+        <div class="sidebar__to">SonicXRocket</div>
+        <p>Multiply your Bitcoin in seconds. Log in to your account or create a new one in one click.</p>
+        <div class="sidebar__buttons"><a href="/login" class="button button_blue button_small">Log in</a><a
+                href="/register" class="button button_orange button_small">Sign up</a></div>
+    </div>
+    <ul class="nav nav_special">
+        <li><a href="/faq#fair"><span class="nav__icon"><i class="fa fa-gavel" style="font-size:24px"></i></span>Provably fair</a></li>
+    </ul>
+    <ul class="nav">
+        <li><a href="/leaderboard"><span class="nav__icon"><i class="fa fa-star" style="font-size:24px"></i></span>Hall of Fame</a></li>
+        <li><a href="/guide"><span class="nav__icon"><i class="fa fa-rocket" style="font-size:24px"></i></span>How to Play</a></li>
+        <li><a href="faq"><span class="nav__icon"><i class="fa fa-comment-o" style="font-size: 24px;"></i></span>FAQ</a></li>
+        <li><a href="/contact/"><span class="nav__icon"><i class="fa fa-envelope-o" style="font-size:24px"></i></span>Contact</a></li>
+    </ul>
+</div>
+<div id="black-screen" onclick="closeNav()"></div>
+<div class="sidebar" id="sideMenu-login">
+    <form action="/logout" method="post" id="logout" class = "side_form"></form>
+    <div class="sidebar__content" >
+        <div class="sidebar__to" id="username">username</div>
+        <p>Multiply your Bitcoin in seconds. Log in to your account or create a new one in one click.</p>
+        
+    </div>
+    <ul class="nav" id="menu_nav">
+        <li><a href="/play"><span class="nav__icon"><i class="fa fa-rocket"></i></span>SonicxRocket</a></li>
+        <li><a href="/deposit"><span class="nav__icon"><i class="fa fa-download"></i></span>DEPOSIT</a></li>
+        <li><a href="/withdraw"><span class="nav__icon"><i class="fa fa-upload"></i></span>WITHDRAW</a></li>
+        <li><a href="/transactions"><span class="nav__icon"><i class="fa fa-share-alt"></i></span>TRANSACTIONS</a></li>
+        <li><a href="/affiliate"><span class="nav__icon"><i class="fa fa-users" style="font-size:24px"></i></span>AFFILIATE</a></li>
+        <li><a href="/bonus"><span class="nav__icon"><i class="fa fa-gift"></i></span>BONUS</a></li>
+        
+        <hr>
+        <li><a href="/bankroll"><span class="nav__icon"><i class="fa fa-university"></i></span>BANKROLL</a></li>
+        <li><a href="/faq#fair"><span class="nav__icon"><i class="fa fa-gavel"></i></span>PROVABLY FAIR</a></li>
+        <hr>
+        <li><a href="/change-password"><span class="nav__icon"><i class="fa fa-ellipsis-h"></i></span>CHANGE PASSWORD</a></li>
+            <li><a href="/two-factor"><span class="nav__icon"><i class="fa fa-google-plus-square"></i></span>TWO FACTOR AUTHENTICATION</a></li>
+            <hr>
+        <li><a href="/leaderboard"><span class="nav__icon"><i class="fa fa-star" style="font-size:24px"></i></span>Hall of Fame</a></li>
+        <li><a href="/guide"><span class="nav__icon"><i class="fa fa-rocket" style="font-size:24px"></i></span>How to Play</a></li>
+        <li><a href="/faq"><span class="nav__icon"><i class="fa fa-comment-o" style="font-size: 24px;"></i></span>FAQ</a></li>
+        <li><a href="/privacy-policy"><span class="nav__icon"><i class="fa fa-book" style="font-size: 24px;"></i></span>Terms & Conditions</a></li>
+        <li><a href="/contact/"><span class="nav__icon"><i class="fa fa-envelope-o" style="font-size:24px"></i></span>Contact</a></li>
+        <li><a onclick="logout()"><span class="nav__icon"><i class="fa fa-sign-out" style="font-size:24px"></i></span>Logout</a></li>
+    </ul>
+</div>
